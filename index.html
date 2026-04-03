@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andy Seely — Portfolio</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Andy Seely — educator, consultant, and technology leader."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container navbar__inner">
+        <!-- Logo / Name slot -->
+        <a href="index.html" class="navbar__logo">
+          <div class="navbar__logo-mark"><span>A</span></div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">Andy Seely</span>
+            <span class="navbar__logo-role">Portfolio</span>
+          </div>
+        </a>
+
+        <!-- Mobile toggle -->
+        <button
+          class="navbar__toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <!-- Nav links -->
+        <ul class="navbar__nav" id="main-nav">
+          <li><a href="about.html">About</a></li>
+
+          <!-- Schools dropdown -->
+          <li>
+            <button data-dropdown="schools">
+              Schools
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <div class="dropdown__label">Education</div>
+              <a href="hillsborough/index.html">
+                <span class="nav-dot"></span>
+                Hillsborough College
+              </a>
+              <a href="umgc/index.html">
+                <span class="nav-dot" style="background: #2c7a7b"></span>
+                University of Maryland Global Campus
+              </a>
+              <a href="schiller/index.html">
+                <span class="nav-dot" style="background: #b7791f"></span>
+                Schiller International University
+              </a>
+            </div>
+          </li>
+
+          <!-- Consulting dropdown -->
+          <li>
+            <button data-dropdown="consulting">
+              Consulting
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <div class="dropdown__label">Andy Seely LLC</div>
+              <a href="consulting/index.html">Consulting Overview</a>
+              <a href="consulting/clients.html">Clients &amp; Projects</a>
+              <a href="consulting/offerings.html">Consulting Offerings</a>
+            </div>
+          </li>
+
+          <!-- IEEE dropdown -->
+          <li>
+            <button data-dropdown="ieee">
+              IEEE
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <div class="dropdown__label">IEEE Involvement</div>
+              <a href="ieee/index.html">IEEE Organization</a>
+              <a href="ieee/roles.html">Current &amp; Previous Roles</a>
+              <div class="dropdown__divider"></div>
+              <a href="ieee-cs/index.html">IEEE Computer Society</a>
+              <a href="ieee-cs/projects.html">Projects &amp; Opportunities</a>
+            </div>
+          </li>
+
+          <li><a href="personal/index.html">Personal</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+    <header class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Professional Portfolio</p>
+        <h1>
+          Andy Seely
+          <br />
+          <em>Educator &amp; Consultant</em>
+        </h1>
+        <p class="hero__role">
+          Technology Instructor · IEEE Member · Founder, Andy Seely LLC
+        </p>
+        <p class="hero__lead">
+          A portfolio of academic work, industry consulting, professional
+          affiliations, and personal interests — organized for clarity and easy
+          navigation.
+        </p>
+        <div class="hero__cta">
+          <a href="about.html" class="btn btn--primary">
+            Professional Overview
+          </a>
+          <a href="consulting/index.html" class="btn btn--outline">
+            Consulting Work
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ════════════════════════════════════════════
+       SECTION: SCHOOLS
+  ════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education &amp; Academic Work</h2>
+          <p>
+            Coursework, partnerships, clubs, and special projects across three
+            institutions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Hillsborough -->
+          <a
+            href="hillsborough/index.html"
+            class="card card--link"
+            style="border-top: 3px solid #2b6cb0"
+          >
+            <p class="card__label accent--blue">Hillsborough College</p>
+            <h3>Hillsborough College</h3>
+            <p>
+              Classes, coding club, Microsoft &amp; Red Hat partnerships,
+              internships, and student projects.
+            </p>
+            <div class="card__arrow">View section →</div>
+          </a>
+
+          <!-- UMGC -->
+          <a
+            href="umgc/index.html"
+            class="card card--link"
+            style="border-top: 3px solid #2c7a7b"
+          >
+            <p class="card__label accent--teal">University of Maryland</p>
+            <h3>UMGC</h3>
+            <p>
+              Classes, extra credit work, and IEEE club activities at the
+              University of Maryland Global Campus.
+            </p>
+            <div class="card__arrow">View section →</div>
+          </a>
+
+          <!-- Schiller -->
+          <a
+            href="schiller/index.html"
+            class="card card--link"
+            style="border-top: 3px solid #b7791f"
+          >
+            <p class="card__label accent--amber">
+              Schiller International University
+            </p>
+            <h3>Schiller International</h3>
+            <p>
+              Coursework, extra credit, and industry networking activities at
+              Schiller International University.
+            </p>
+            <div class="card__arrow">View section →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+       SECTION: CONSULTING
+  ════════════════════════════════════════════ -->
+    <section
+      class="section"
+      style="
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      "
+    >
+      <div class="container">
+        <div class="section-heading">
+          <h2>Professional &amp; Consulting Work</h2>
+          <p>Industry consulting through Andy Seely LLC.</p>
+        </div>
+
+        <div class="grid-2">
+          <a
+            href="consulting/clients.html"
+            class="card card--link"
+            style="border-top: 3px solid var(--amber)"
+          >
+            <p class="card__label accent--amber">Andy Seely LLC</p>
+            <h3>Previous Clients &amp; Projects</h3>
+            <p>
+              A record of past consulting engagements, client outcomes, and
+              project highlights.
+            </p>
+            <div class="card__arrow">View clients →</div>
+          </a>
+          <a
+            href="consulting/offerings.html"
+            class="card card--link"
+            style="border-top: 3px solid var(--amber)"
+          >
+            <p class="card__label accent--amber">Andy Seely LLC</p>
+            <h3>Consulting Offerings</h3>
+            <p>
+              Current service areas, expertise, and ways to engage with Andy
+              Seely LLC.
+            </p>
+            <div class="card__arrow">View offerings →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+       SECTION: IEEE
+  ════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>IEEE Involvement</h2>
+          <p>
+            Roles, projects, and contributions within the IEEE organization and
+            Computer Society.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a
+            href="ieee/index.html"
+            class="card card--link"
+            style="border-top: 3px solid #5a4db0"
+          >
+            <p class="card__label accent--purple">IEEE Organization</p>
+            <h3>IEEE Organization</h3>
+            <p>
+              Current and previous roles within the Institute of Electrical and
+              Electronics Engineers.
+            </p>
+            <div class="card__arrow">View roles →</div>
+          </a>
+          <a
+            href="ieee-cs/index.html"
+            class="card card--link"
+            style="border-top: 3px solid #5a4db0"
+          >
+            <p class="card__label accent--purple">IEEE Computer Society</p>
+            <h3>IEEE Computer Society</h3>
+            <p>
+              Club roles, active projects, and available opportunities in the
+              IEEE Computer Society chapter.
+            </p>
+            <div class="card__arrow">View society →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+       SECTION: PERSONAL
+  ════════════════════════════════════════════ -->
+    <section
+      class="section"
+      style="background: var(--white); border-top: 1px solid var(--border)"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <h2>Personal Interests</h2>
+          <p>
+            Outside of professional life — automotive projects and the garden.
+          </p>
+        </div>
+
+        <div class="grid-2" style="max-width: 600px">
+          <a
+            href="personal/automotive.html"
+            class="card card--link"
+            style="border-top: 3px solid #276749"
+          >
+            <p class="card__label accent--green">Personal</p>
+            <h3>Automotive</h3>
+            <p>Cars, projects, and automotive interests.</p>
+            <div class="card__arrow">View →</div>
+          </a>
+          <a
+            href="personal/garden.html"
+            class="card card--link"
+            style="border-top: 3px solid #276749"
+          >
+            <p class="card__label accent--green">Personal</p>
+            <h3>Garden</h3>
+            <p>Gardening projects, plants, and seasonal updates.</p>
+            <div class="card__arrow">View →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <h3>Andy Seely</h3>
+            <p>
+              Educator, consultant, and technology professional. This portfolio
+              documents academic, professional, and personal milestones.
+            </p>
+          </div>
+
+          <div class="footer__col">
+            <h4>Education</h4>
+            <ul>
+              <li>
+                <a href="hillsborough/index.html">Hillsborough College</a>
+              </li>
+              <li><a href="umgc/index.html">UMGC</a></li>
+              <li><a href="schiller/index.html">Schiller International</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h4>Professional</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="consulting/index.html">Consulting</a></li>
+              <li><a href="ieee/index.html">IEEE</a></li>
+              <li><a href="ieee-cs/index.html">IEEE Computer Society</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h4>More</h4>
+            <ul>
+              <li><a href="personal/index.html">Personal</a></li>
+              <li><a href="personal/automotive.html">Automotive</a></li>
+              <li><a href="personal/garden.html">Garden</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2025 Andy Seely. All rights reserved.</span>
+          <span>Built with HTML, CSS &amp; JavaScript</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
