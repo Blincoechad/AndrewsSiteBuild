@@ -30,6 +30,7 @@
           ☰
         </button>
         <ul class="navbar__nav" id="main-nav">
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li>
             <button data-dropdown="schools">
@@ -103,12 +104,20 @@
     <!-- SUB-NAV -->
     <div class="sub-nav">
       <div class="container">
-        <nav class="sub-nav__inner" aria-label="Section navigation">
-          <a href="#professional-summary" class="active">Summary</a>
-          <a href="#expertise">Areas of Expertise</a>
-          <a href="#affiliations">Affiliations</a>
-          <a href="#education">Education</a>
-        </nav>
+        <ul class="sub-nav__inner" aria-label="Section navigation">
+          <li><a href="#professional-summary" class="active">Summary</a></li>
+          <li><a href="#expertise">Areas of Expertise</a></li>
+          <li>
+            <button data-dropdown="more">
+              More
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="#affiliations">Affiliations</a>
+              <a href="#education">Education</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 

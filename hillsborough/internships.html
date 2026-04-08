@@ -8,7 +8,7 @@
       name="description"
       content="Student internship programs and opportunities at Hillsborough College."
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/hillsborough.css" />
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -100,19 +100,27 @@
       </div>
     </header>
 
-    <div class="sub-nav">
+    <div class="sub-nav sub-nav--hillsborough">
       <div class="container">
-        <nav class="sub-nav__inner" aria-label="Section navigation">
-          <a href="index.html">Overview</a>
-          <a href="past-classes.html">Past Classes</a>
-          <a href="current-classes.html">Current Classes</a>
-          <a href="coding-club.html">Coding Club</a>
-          <a href="microsoft.html">Microsoft</a>
-          <a href="redhat.html">RedHat</a>
-          <a href="oracle.html">Oracle</a>
-          <a href="internships.html" class="active">Internships</a>
-          <a href="projects.html">Projects</a>
-        </nav>
+        <ul class="sub-nav__inner" aria-label="Section navigation">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="current-classes.html">Current Classes</a></li>
+          <li><a href="certs.html">Certifications</a></li>
+          <li>
+            <button data-dropdown="more">
+              More
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="past-classes.html">Past Classes</a>
+              <a href="coding-club.html">Coding Club</a>
+              <a href="current-classes.html">Current Classes</a>
+              <a href="certs.html">Certifications</a>
+              <a href="internships.html" class="active">Internships</a>
+              <a href="projects.html">Projects</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 

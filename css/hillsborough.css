@@ -1,0 +1,14 @@
+@import url("styles.css");
+
+/* Hillsborough-specific styles */
+.sub-nav--hillsborough .sub-nav__inner li:nth-child(2),
+.sub-nav--hillsborough .sub-nav__inner li:nth-child(3) {
+  display: none;
+}
+
+@media (max-width: 393px) {
+  .sub-nav--hillsborough .sub-nav__inner li:nth-child(2),
+  .sub-nav--hillsborough .sub-nav__inner li:nth-child(3) {
+    display: none;
+  }
+}

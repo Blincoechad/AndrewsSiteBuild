@@ -8,7 +8,7 @@
       name="description"
       content="Andy Seely's work at Hillsborough College — teaching, certifications, clubs, and student projects."
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/hillsborough.css" />
   </head>
   <body>
     <!-- NAVBAR -->
@@ -30,6 +30,7 @@
           ☰
         </button>
         <ul class="navbar__nav" id="main-nav">
+          <li><a href="../index.html">Home</a></li>
           <li><a href="../about.html">About</a></li>
           <li>
             <button data-dropdown="schools">
@@ -101,20 +102,27 @@
       </div>
     </header>
 
-    <!-- SUB-NAV -->
-    <div class="sub-nav">
+    <div class="sub-nav sub-nav--hillsborough">
       <div class="container">
-        <nav class="sub-nav__inner" aria-label="Section navigation">
-          <a href="index.html" class="active">Overview</a>
-          <a href="past-classes.html">Past Classes</a>
-          <a href="current-classes.html">Current Classes</a>
-          <a href="coding-club.html">Coding Club</a>
-          <a href="microsoft.html">Microsoft Certifications</a>
-          <a href="redhat.html">RedHat Certifications</a>
-          <a href="oracle.html">Oracle Certifications</a>
-          <a href="internships.html">Internships</a>
-          <a href="projects.html">Projects</a>
-        </nav>
+        <ul class="sub-nav__inner" aria-label="Section navigation">
+          <li><a href="index.html" class="active">Overview</a></li>
+          <li><a href="current-classes.html">Current Classes</a></li>
+          <li><a href="certs.html">Certifications</a></li>
+          <li>
+            <button data-dropdown="more">
+              More
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="past-classes.html">Past Classes</a>
+              <a href="coding-club.html">Coding Club</a>
+              <a href="current-classes.html">Current Classes</a>
+              <a href="certs.html">Certifications</a>
+              <a href="internships.html">Internships</a>
+              <a href="projects.html">Projects</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 

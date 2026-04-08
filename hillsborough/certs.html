@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects & Opportunities — IEEE Computer Society — Andy Seely</title>
+    <title>
+      Professional Certifications — Hillsborough College — Andy Seely
+    </title>
     <meta
       name="description"
-      content="Projects and opportunities through IEEE Computer Society."
+      content="Microsoft, RedHat, and Oracle certification training and guidance at Hillsborough College."
     />
-    <link rel="stylesheet" href="../css/ieee-cs.css" />
+    <link rel="stylesheet" href="../css/hillsborough.css" />
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -37,7 +39,7 @@
             </button>
             <div class="dropdown">
               <div class="dropdown__label">Education</div>
-              <a href="../hillsborough/index.html">
+              <a href="../hillsborough/index.html" class="active">
                 <span class="nav-dot" style="background: #2b6cb0"></span>
                 Hillsborough College
               </a>
@@ -73,9 +75,7 @@
               <a href="../ieee/index.html">IEEE Organization</a>
               <a href="../ieee/roles.html">Current & Previous Roles</a>
               <div class="dropdown__divider"></div>
-              <a href="../ieee-cs/index.html" class="active">
-                IEEE Computer Society
-              </a>
+              <a href="../ieee-cs/index.html">IEEE Computer Society</a>
               <a href="../ieee-cs/projects.html">Projects & Opportunities</a>
             </div>
           </li>
@@ -89,39 +89,76 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../index.html">Home</a>
           <span class="breadcrumb__sep">›</span>
-          <a href="index.html">IEEE Computer Society</a>
+          <a href="index.html">Hillsborough College</a>
           <span class="breadcrumb__sep">›</span>
-          <span>Projects & Opportunities</span>
+          <span>Professional Certifications</span>
         </nav>
-        <p class="page-header__eyebrow">Professional Involvement</p>
-        <h1>Projects & Opportunities</h1>
+        <p class="page-header__eyebrow">Education — Hillsborough College</p>
+        <h1>Professional Certifications</h1>
         <p>
-          Collaborative projects and community opportunities within IEEE
-          Computer Society.
+          Industry-recognized certification training and guidance for Microsoft,
+          RedHat, and Oracle technologies.
         </p>
       </div>
     </header>
 
-    <div class="sub-nav">
+    <div class="sub-nav sub-nav--hillsborough">
       <div class="container">
-        <nav class="sub-nav__inner" aria-label="Section navigation">
-          <a href="index.html">Overview</a>
-          <a href="roles.html">Roles</a>
-          <a href="projects.html" class="active">Projects</a>
-        </nav>
+        <ul class="sub-nav__inner" aria-label="Section navigation">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="current-classes.html">Current Classes</a></li>
+          <li><a href="certs.html" class="active">Certifications</a></li>
+          <li>
+            <button data-dropdown="more">
+              More
+              <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="past-classes.html">Past Classes</a>
+              <a href="coding-club.html">Coding Club</a>
+              <a href="current-classes.html">Current Classes</a>
+              <a href="certs.html">Certifications</a>
+              <a href="internships.html">Internships</a>
+              <a href="projects.html">Projects</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 
     <main>
       <div class="section">
         <div class="container">
-          <section id="projects" class="content-block">
+          <section id="microsoft" class="content-block">
             <div class="section-heading--line">
-              <h2>Projects & Initiatives</h2>
+              <h2>Microsoft Certifications</h2>
             </div>
             <p>
-              Information about IEEE Computer Society projects and opportunities
-              will be listed here.
+              Guidance and training for Microsoft Azure, Windows, and enterprise
+              technology certifications. Students at Hillsborough College have
+              access to Microsoft certification pathways.
+            </p>
+          </section>
+
+          <section id="redhat" class="content-block">
+            <div class="section-heading--line">
+              <h2>RedHat Certifications</h2>
+            </div>
+            <p>
+              RedHat Linux administration and enterprise platform certification
+              training. RedHat certifications provide industry-recognized
+              credentials for Linux professionals.
+            </p>
+          </section>
+
+          <section id="oracle" class="content-block">
+            <div class="section-heading--line">
+              <h2>Oracle Certifications</h2>
+            </div>
+            <p>
+              Oracle database administration and enterprise systems
+              certification pathways. Oracle provides industry-leading database
+              and enterprise technology certifications.
             </p>
           </section>
         </div>
