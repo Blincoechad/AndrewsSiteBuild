@@ -808,6 +808,12 @@ h4 {
   line-height: 1.6;
 }
 
+.footer__social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
 .footer__col h4 {
   font-family: var(--font-body);
   font-size: 11px;
@@ -915,6 +921,61 @@ h4 {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.hero__social {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: flex-start;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.social-icon--facebook {
+  background-color: #1877f2;
+  border-color: #1877f2;
+}
+
+.social-icon--facebook:hover {
+  background-color: transparent;
+  color: #1877f2;
+  transform: translateY(-2px);
+}
+
+.social-icon--linkedin {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.social-icon--linkedin:hover {
+  background-color: transparent;
+  color: #0a66c2;
+  transform: translateY(-2px);
+}
+
+.social-icon--instagram {
+  background-color: #e1306c;
+  border-color: #e1306c;
+}
+
+.social-icon--instagram:hover {
+  background-color: transparent;
+  color: #e1306c;
+  transform: translateY(-2px);
 }
 
 .btn {

@@ -121,6 +121,61 @@
             <p>
               Details about IEEE roles and responsibilities will be listed here.
             </p>
+            <div>
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Club Roster</title>
+</head>
+<body>
+  <div class="container">
+
+    <h2>Club Roster</h2>
+    <p class="subtitle">Current members and their roles</p>
+
+    <div class="grid" id="card-grid"></div>
+
+    <div class="divider"></div>
+
+    <div class="admin-section">
+      <div class="admin-header">
+        <span class="admin-title">Admin panel</span>
+        <button id="lock-btn" onclick="toggleLock()" style="display:none;">Lock</button>
+      </div>
+
+      <!-- PIN gate -->
+      <div id="pin-gate">
+        <div class="pin-row">
+          <input class="pin-input" type="password" id="pin-input" placeholder="Enter PIN (default: 1234)" />
+          <button onclick="checkPin()">Unlock</button>
+        </div>
+        <div class="err" id="pin-err"></div>
+      </div>
+
+      <!-- Admin controls (hidden until unlocked) -->
+      <div id="admin-content" style="display:none;">
+        <div class="row-form">
+          <input type="text" id="new-name" placeholder="Student name" />
+          <select id="new-role">
+            <option value="Member">Member</option>
+            <option value="Officer">Officer</option>
+            <option value="Secretary">Secretary</option>
+            <option value="Treasurer">Treasurer</option>
+            <option value="President">President</option>
+            <option value="student">President</option>
+          </select>
+          <button onclick="addMember()">Add</button>
+        </div>
+        <div class="members-list" id="admin-list"></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+            </div>
           </section>
         </div>
       </div>
