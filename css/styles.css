@@ -790,7 +790,7 @@ h4 {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
+  grid-template-columns: 1.5fr repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -837,6 +837,22 @@ h4 {
 }
 .footer__col a:hover {
   color: #d4e9f0;
+}
+
+.footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__contact-info p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.footer__contact-info strong {
+  color: #e8e6eb;
 }
 
 .footer__bottom {
