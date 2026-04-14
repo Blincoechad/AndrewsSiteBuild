@@ -351,40 +351,104 @@ h4 {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 2px 4px rgba(255, 255, 255, 0.2);
   border-color: var(--border-dark);
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px) scale(2.02);
+}
+
+.grid-3 .card:hover {
+  box-shadow: none;
+  transform: translateX(-8px);
+}
+
+/* Home page grid-3 colored cards with color-matched shadows */
+.grid-3 .card--blue:hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(43, 108, 176, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
+}
+
+.grid-3 .card--teal:hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(44, 122, 123, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
+}
+
+.grid-3 .card--amber:hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(201, 149, 111, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
+}
+
+/* Home page grid-2 consulting cards with amber shadows */
+.section--light .grid-2 .card--amber:hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(201, 149, 111, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
 }
 
 /* Card color-matched glows */
 .card--blue:hover {
   box-shadow:
-    var(--shadow-md),
-    0 0 24px rgba(43, 108, 176, 0.35);
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(43, 108, 176, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
 }
 
 .card--teal:hover {
   box-shadow:
-    var(--shadow-md),
-    0 0 24px rgba(44, 122, 123, 0.35);
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(44, 122, 123, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
 }
 
 .card--amber:hover {
   box-shadow:
-    var(--shadow-md),
-    0 0 24px rgba(201, 149, 111, 0.35);
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(201, 149, 111, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
 }
 
 .card--purple:hover {
   box-shadow:
-    var(--shadow-md),
-    0 0 24px rgba(90, 77, 176, 0.35);
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(90, 77, 176, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
 }
 
 .card--green:hover {
   box-shadow:
-    var(--shadow-md),
-    0 0 24px rgba(39, 103, 73, 0.35);
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(39, 103, 73, 0.85);
+  border-color: var(--border-dark);
+  transform: translateY(-2px) scale(2.02);
+}
+
+/* Professional Affiliations color-matched shadows */
+#affiliations .card:nth-child(-n + 2):hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(90, 77, 176, 0.85);
+}
+
+#affiliations .card:nth-child(3):hover {
+  box-shadow:
+    0 1px 11px 1px rgba(255, 255, 255, 0.3),
+    0 0 24px rgba(201, 149, 111, 0.85);
 }
 
 .card--link {
@@ -1016,7 +1080,7 @@ h4 {
 .btn--primary:hover {
   background: #d4e9f0;
   color: #1a1a1f;
-  transform: translateY(-1px);
+  transform: translateY(-4px);
 }
 
 .btn--outline {
@@ -1025,8 +1089,9 @@ h4 {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .btn--outline:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--accent);
   color: var(--white);
+  transform: translateY(-4px);
 }
 
 .btn--accent {

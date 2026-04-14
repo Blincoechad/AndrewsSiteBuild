@@ -12,3 +12,341 @@
     display: none;
   }
 }
+
+/* Club Roster Widget — IEEE Dark Theme */
+:root {
+  --navy: #615c68;
+  --navy-mid: #4a4752;
+  --slate: #8b8793;
+  --slate-light: #a9a0b0;
+  --cream: #1a1a1f;
+  --white: #dddddd;
+  --border: #3e3d42;
+  --border-dark: #4a4752;
+  --accent: #24849d;
+  --accent-light: #d4e9f0;
+  --amber: #c9956f;
+  --amber-light: #e8d5c4;
+  --success: #4caf7f;
+}
+
+.roster-container {
+  max-width: 700px;
+  margin: 2rem 0;
+  padding: 0 1rem;
+  background: var(--cream);
+  color: var(--white);
+}
+
+.roster-container h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--slate);
+  margin-bottom: 1.75rem;
+}
+
+/* --- Member cards --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--slate);
+}
+
+/* --- Avatars --- */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.av-blue {
+  background: rgba(36, 132, 157, 0.25);
+  color: #6ec6d8;
+}
+.av-teal {
+  background: rgba(97, 92, 104, 0.45);
+  color: var(--slate-light);
+}
+.av-purple {
+  background: rgba(74, 71, 82, 0.6);
+  color: #c4bfcc;
+}
+.av-coral {
+  background: rgba(201, 149, 111, 0.25);
+  color: #dbb08e;
+}
+.av-amber {
+  background: rgba(76, 175, 127, 0.2);
+  color: #7ecfa9;
+}
+
+/* --- Name & badge --- */
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.b-president {
+  background: rgba(36, 132, 157, 0.2);
+  color: #6ec6d8;
+  border: 1px solid rgba(36, 132, 157, 0.35);
+}
+.b-officer {
+  background: rgba(201, 149, 111, 0.2);
+  color: #dbb08e;
+  border: 1px solid rgba(201, 149, 111, 0.35);
+}
+.b-member {
+  background: rgba(97, 92, 104, 0.35);
+  color: var(--slate-light);
+  border: 1px solid var(--border);
+}
+.b-treasurer {
+  background: rgba(76, 175, 127, 0.15);
+  color: #7ecfa9;
+  border: 1px solid rgba(76, 175, 127, 0.3);
+}
+.b-secretary {
+  background: rgba(97, 92, 104, 0.25);
+  color: #c4bfcc;
+  border: 1px solid var(--border);
+}
+
+/* --- Divider --- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.75rem 0;
+}
+
+/* --- Admin panel --- */
+.admin-section {
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.admin-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- Buttons --- */
+.admin-section button {
+  background: var(--navy);
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--white);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.admin-section button:hover {
+  background: var(--slate);
+  border-color: var(--slate);
+  color: var(--cream);
+}
+
+.admin-section button:active {
+  transform: scale(0.98);
+}
+
+/* --- Inputs & selects --- */
+.admin-section input,
+.admin-section select {
+  background: var(--cream);
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--white);
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.admin-section input::placeholder {
+  color: var(--slate);
+}
+
+.admin-section input:focus,
+.admin-section select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(36, 132, 157, 0.2);
+}
+
+.admin-section select option {
+  background: var(--navy-mid);
+  color: var(--white);
+}
+
+/* --- PIN row --- */
+.pin-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pin-input {
+  width: 200px;
+}
+
+/* --- Add member form --- */
+.row-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.row-form input,
+.row-form select {
+  flex: 1;
+  min-width: 100px;
+}
+
+/* --- Admin member list --- */
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.member-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.role-tag {
+  color: var(--slate);
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+/* --- Delete button --- */
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--slate);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.del-btn:hover {
+  color: #e05a5a;
+  background: none;
+}
+
+/* --- Error & empty states --- */
+.err {
+  font-size: 12px;
+  color: #e05a5a;
+  margin-top: 6px;
+}
+
+.empty {
+  color: var(--slate);
+  font-size: 13px;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pin-input {
+    width: 100%;
+  }
+
+  .row-form {
+    flex-direction: column;
+  }
+
+  .row-form input,
+  .row-form select {
+    min-width: unset;
+  }
+}
