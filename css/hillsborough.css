@@ -29,6 +29,11 @@
   --amber-light: #e8d5c4;
   --success: #4caf7f;
 }
+.SchoolLogo-Hcc {
+  max-width: 8rem;
+  height: auto;
+  margin: 1rem;
+}
 
 .roster-container {
   max-width: 700px;
