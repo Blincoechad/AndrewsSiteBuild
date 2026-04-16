@@ -108,70 +108,16 @@
       </div>
     </div>
 
-    <main>
+      <main>
       <div class="section">
         <div class="container">
-          <section id="ieee-club" class="content-block">
-            <div class="section-heading--line">
-              <h2>IEEE Club at UMGC</h2>
-            </div>
-            <p>Details about IEEE club activities and involvement at UMGC.</p>
-          </section>
-
-          <div class="roster-container" data-roster-id="umgc-ieee">
-            <h2>Club Roster</h2>
-            <p class="subtitle">Current members and their roles</p>
-
-            <div class="grid" id="card-grid"></div>
-
-            <div class="divider"></div>
-
-            <div class="admin-section">
-              <div class="admin-header">
-                <span class="admin-title">Admin panel</span>
-                <button
-                  id="lock-btn"
-                  onclick="toggleLock()"
-                  style="display: none"
-                >
-                  Lock
-                </button>
-              </div>
-
-              <!-- Admin PIN for Role Assigning  -->
-              <div id="pin-gate">
-                <div class="pin-row">
-                  <input
-                    class="pin-input"
-                    type="password"
-                    id="pin-input"
-                    placeholder="Enter PIN (default: 1234)"
-                  />
-                  <button onclick="checkPin()">Unlock</button>
-                </div>
-                <div class="err" id="pin-err"></div>
-              </div>
-
-              <!-- Admin controls (hidden until unlocked) -->
-              <div id="admin-content" style="display: none">
-                <div class="row-form">
-                  <input type="text" id="new-name" placeholder="Student name" />
-                  <select id="new-role">
-                    <option value="Member">Member</option>
-                    <option value="Officer">Officer</option>
-                    <option value="Secretary">Secretary</option>
-                    <option value="Treasurer">Treasurer</option>
-                    <option value="President">President</option>
-                    <option value="newMember">New Member</option>
-                  </select>
-                  <button onclick="addMember()">Add</button>
-                </div>
-                <div class="members-list" id="admin-list"></div>
-              </div>
-            </div>
+          <div class="roster-container" data-roster-id="coding-roster">
+            <h2 class="codingClub-title">Coding Club</h2>
+            <div class="card-grid"></div>
           </div>
         </div>
       </div>
+      <div class="divider"></div>
     </main>
 
     <footer class="footer">

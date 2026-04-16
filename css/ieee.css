@@ -67,6 +67,24 @@ h2 {
   gap: 10px;
   margin-bottom: 1.5rem;
 }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--slate);
+  margin-bottom: 1.75rem;
+}
+.codingClub-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .card {
   background: var(--navy-mid);
@@ -74,7 +92,8 @@ h2 {
   border-radius: var(--radius-lg);
   padding: 14px 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 12px;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.15s ease;
@@ -108,7 +127,8 @@ h2 {
 /* Success green */
 .av-amber  { background: rgba(76, 175, 127, 0.2);  color: #7ecfa9; }
 
-/* --- Name & badge --- */
+/* --- Name & badge (add a b- then position, then add color for that position.
+then go in JS file and change that position to the class matching the position) --- */
 .name {
   font-size: 14px;
   font-weight: 500;
@@ -125,11 +145,27 @@ h2 {
   letter-spacing: 0.02em;
 }
 
-.b-president { background: rgba(36, 132, 157, 0.2);  color: #6ec6d8;         border: 1px solid rgba(36,132,157,0.35); }
-.b-officer   { background: rgba(201, 149, 111, 0.2); color: #dbb08e;         border: 1px solid rgba(201,149,111,0.35); }
-.b-member    { background: rgba(97, 92, 104, 0.35);  color: var(--slate-light); border: 1px solid var(--border); }
-.b-treasurer { background: rgba(76, 175, 127, 0.15); color: #7ecfa9;         border: 1px solid rgba(76,175,127,0.3); }
-.b-secretary { background: rgba(97, 92, 104, 0.25);  color: #c4bfcc;         border: 1px solid var(--border); }
+.b-president { background: rgba(36, 132, 157, 0.2); 
+   color: #6ec6d8;  
+  border: 1px solid rgba(36,132,157,0.35); }
+.b-officer   { background: rgba(201, 149, 111, 0.2);
+   color: #dbb08e;
+   border: 1px solid rgba(201,149,111,0.35); }
+.b-member    { background: rgba(108, 25, 225, 0.35);
+    color: var(--slate-light); 
+    border: 1px solid var(--border); }
+.b-treasurer { background: rgba(76, 175, 127, 0.15); 
+  color: #7ecfa9;         
+  border: 1px solid rgba(76,175,127,0.3); }
+.b-secretary { background: rgba(97, 92, 104, 0.25);  
+  color: #c4bfcc;         
+  border: 1px solid var(--border); }
+.b-mentor {
+  background: rgba(197, 17, 23, 0.5);    
+  color: #c4bfcc;         
+  border: 1px solid var(--border); 
+}
+
 
 /* --- Divider --- */
 .divider {
@@ -185,110 +221,3 @@ button:active {
   transform: scale(0.98);
 }
 
-/* --- Inputs & selects --- */
-input,
-select {
-  background: var(--cream);
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius);
-  padding: 7px 10px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--white);
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-input::placeholder {
-  color: var(--slate);
-}
-
-input:focus,
-select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(36, 132, 157, 0.2);
-}
-
-select option {
-  background: var(--navy-mid);
-  color: var(--white);
-}
-
-/* --- PIN row --- */
-.pin-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.pin-input { width: 200px; }
-
-/* --- Add member form --- */
-.row-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.row-form input,
-.row-form select {
-  flex: 1;
-  min-width: 100px;
-}
-
-/* --- Admin member list --- */
-.members-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.member-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 8px 12px;
-  font-size: 13px;
-  color: var(--white);
-}
-
-.role-tag {
-  color: var(--slate);
-  font-size: 12px;
-  margin-left: 8px;
-}
-
-/* --- Delete button --- */
-.del-btn {
-  background: none;
-  border: none;
-  color: var(--slate);
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0 4px;
-  line-height: 1;
-  transition: color 0.15s ease;
-}
-
-.del-btn:hover {
-  color: #e05a5a;
-  background: none;
-}
-
-/* --- Error & empty states --- */
-.err {
-  font-size: 12px;
-  color: #e05a5a;
-  margin-top: 6px;
-}
-
-.empty {
-  color: var(--slate);
-  font-size: 13px;
-  padding: 1rem 0;
-  text-align: center;
-}

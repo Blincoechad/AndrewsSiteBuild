@@ -114,150 +114,122 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeObserver.observe(el);
   });
 });
-// ── CONFIG ──────────────────────────────────────────────
-const PIN = "1234"; // Change this to your own PIN
-// ────────────────────────────────────────────────────────
 
-const COLORS = ["av-blue", "av-teal", "av-purple", "av-coral", "av-amber"];
-const BADGE_CLASS = {
-  President: "b-president",
-  Officer: "b-officer",
-  Member: "b-member",
-  Treasurer: "b-treasurer",
-  Secretary: "b-secretary",
+// Each role maps to one avatar color class and one badge class.
+// To change a role's color, edit the avatarClass value here.
+// Available avatar classes: av-teal  av-blue  av-purple  av-coral  av-amber  av-green
+// ===============================
+// ROLE CONFIGS (PER CLUB)
+// ===============================
+const ROLE_CONFIGS = {
+  ieee: {
+    President:  { avatarClass: 'av-coral',   badgeClass: 'b-president' },
+    Officer:    { avatarClass: 'av-coral',  badgeClass: 'b-officer'   },
+    Treasurer:  { avatarClass: 'av-amber',  badgeClass: 'b-treasurer' },
+    Member:     { avatarClass: 'av-blue',   badgeClass: 'b-member'    },
+  },
+
+  codingClub: {
+    Lead:       { avatarClass: 'av-coral', badgeClass: 'b-lead'      },
+    Developer:  { avatarClass: 'av-amber',  badgeClass: 'b-dev'       },
+    Designer:   { avatarClass: 'av-blue',   badgeClass: 'b-designer'    },
+    President:  { avatarClass: 'av-coral', badgeClass: 'b-president' },
+  },
+
+  umgcIEEE: {
+    Chair:      { avatarClass: 'av-coral',    badgeClass: 'b-chair'     },
+    ViceChair:  { avatarClass: 'av-amber', badgeClass: 'b-vice'      },
+    Member:     { avatarClass: 'av-blue',   badgeClass: 'b-member'    },
+  }
 };
 
-let members = [];
-let unlocked = false;
-let rosterId = "club_members"; // Default key for backward compatibility
+// ===============================
+// ROSTER Roles DATA (EDIT HERE ONLY)
+// ===============================
+const ROSTERS = {
+  "ieee-roles": {
+    config: "ieee",
+    members: [
+      { name: "Maria Garcia", role: "President" },
+      { name: "Sam Lee", role: "Treasurer" },
+      { name: "Jordan Smith", role: "Member" }
+    ]
+  },
 
-// Get roster ID from data attribute if it exists
-const rosterContainer = document.querySelector(".roster-container");
-if (rosterContainer && rosterContainer.dataset.rosterId) {
-  rosterId = rosterContainer.dataset.rosterId;
-}
+  "coding-roster": {
+    config: "codingClub",
+    members: [
+      { name: "Alex Dev", role: "Lead" },
+      { name: "Chris Code", role: "Developer" },
+      { name: "Taylor UI", role: "Designer" },
+      { name: "Taylor UI", role: "President" }
 
-// Load members from localStorage (persists between visits)
-function load() {
-  const saved = localStorage.getItem(rosterId);
-  if (saved) {
-    members = JSON.parse(saved);
-  } else {
-    // Default starter data — remove or edit these
-    members = [
-      { name: "Alex Johnson", role: "President" },
-      { name: "Maria Garcia", role: "Treasurer" },
-      { name: "Sam Lee", role: "Secretary" },
-      { name: "Jordan Smith", role: "Member" },
-    ];
+    ]
+  },
+
+  "umgc-ieee": {
+    config: "umgcIEEE",
+    members: [
+      { name: "Riley Tech", role: "chair" },
+      { name: "Jordan Net", role: "ViceChair" },
+      { name: "Casey Byte", role: "Member" }
+    ]
   }
-  render();
-}
+};
 
-function save() {
-  localStorage.setItem(rosterId, JSON.stringify(members));
-}
+const DEFAULT_ROLE = { avatarClass: 'av-blue', badgeClass: 'b-member' };
 
-// Generate initials from a name
-function initials(name) {
-  return name
-    .trim()
-    .split(/\s+/)
-    .map((w) => w[0]?.toUpperCase() || "")
-    .slice(0, 2)
-    .join("");
-}
+// ===============================
+// INIT
+// ===============================
+document.querySelectorAll('.roster-container').forEach(container => {
+  const rosterId = container.dataset.rosterId;
+  const roster = ROSTERS[rosterId];
 
-// Pick a consistent color based on the name
-function colorFor(name) {
-  let h = 0;
-  for (const c of name) h = (h * 31 + c.charCodeAt(0)) & 0xffff;
-  return COLORS[h % COLORS.length];
-}
+  if (!roster) return;
 
-function render() {
-  // Public card grid
-  const grid = document.getElementById("card-grid");
-  if (!members.length) {
-    grid.innerHTML = '<p class="empty">No members yet.</p>';
-  } else {
-    grid.innerHTML = members
-      .map(
-        (m) => `
-          <div class="card">
-            <div class="avatar ${colorFor(m.name)}">${initials(m.name)}</div>
-            <div>
-              <div class="name">${m.name}</div>
-              <div class="badge ${BADGE_CLASS[m.role] || "b-member"}">${m.role}</div>
-            </div>
-          </div>
-        `,
-      )
-      .join("");
-  }
+  const ROLE_CONFIG = ROLE_CONFIGS[roster.config];
+  const members = roster.members;
 
-  // Admin list (only when unlocked)
-  if (unlocked) {
-    const list = document.getElementById("admin-list");
-    if (!members.length) {
-      list.innerHTML = '<p class="empty">No members yet — add one above.</p>';
-    } else {
-      list.innerHTML = members
-        .map(
-          (m, i) => `
-            <div class="member-row">
-              <span>${m.name}<span class="role-tag">${m.role}</span></span>
-              <button class="del-btn" onclick="removeMember(${i})">&#x2715;</button>
-            </div>
-          `,
-        )
-        .join("");
-    }
-  }
-}
+  const grid = container.querySelector('.card-grid');
 
-function checkPin() {
-  const val = document.getElementById("pin-input").value;
-  if (val === PIN) {
-    unlocked = true;
-    document.getElementById("pin-gate").style.display = "none";
-    document.getElementById("admin-content").style.display = "block";
-    document.getElementById("lock-btn").style.display = "inline-block";
-    document.getElementById("pin-err").textContent = "";
-    render();
-  } else {
-    document.getElementById("pin-err").textContent = "Incorrect PIN.";
-  }
-}
-
-function toggleLock() {
-  unlocked = false;
-  document.getElementById("pin-gate").style.display = "block";
-  document.getElementById("admin-content").style.display = "none";
-  document.getElementById("lock-btn").style.display = "none";
-  document.getElementById("pin-input").value = "";
-  document.getElementById("pin-err").textContent = "";
-}
-
-function addMember() {
-  const name = document.getElementById("new-name").value.trim();
-  const role = document.getElementById("new-role").value;
-  if (!name) return;
-  members.push({ name, role });
-  document.getElementById("new-name").value = "";
-  save();
-  render();
-}
-
-function removeMember(i) {
-  members.splice(i, 1);
-  save();
-  render();
-}
-
-// Allow pressing Enter in the PIN field
-document.getElementById("pin-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") checkPin();
+  render(grid, members, ROLE_CONFIG);
 });
 
-load();
+// ===============================
+// HELPERS
+// ===============================
+function initials(name) {
+  return name.trim()
+    .split(/\s+/)
+    .map(w => w[0]?.toUpperCase() || '')
+    .slice(0, 2)
+    .join('');
+}
+
+function render(grid, members, ROLE_CONFIG) {
+  if (!grid) return;
+
+  if (!members.length) {
+    grid.innerHTML = '<p class="empty">No members yet.</p>';
+    return;
+  }
+
+  grid.innerHTML = members.map(m => {
+    const cfg = ROLE_CONFIG[m.role] || DEFAULT_ROLE;
+
+    return `
+      <div class="card">
+        <div class="avatar ${cfg.avatarClass}">
+          ${initials(m.name)}
+        </div>
+        <div>
+          <div class="name">${m.name}</div>
+          <div class="badge ${cfg.badgeClass}">
+            ${m.role}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}

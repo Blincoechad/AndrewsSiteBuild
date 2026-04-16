@@ -64,7 +64,7 @@
 .card:hover {
   border-color: var(--slate);
 }
-
+/* avatar colors */
 .avatar {
   width: 40px;
   height: 40px;
@@ -97,7 +97,8 @@
   background: rgba(76, 175, 127, 0.2);
   color: #7ecfa9;
 }
-
+/* --- Name & badge (add a b- then position, then add color for that position.
+then go in JS file and change that position to the class matching the position) --- */
 .name {
   font-size: 14px;
   font-weight: 500;
@@ -137,6 +138,11 @@
 .b-secretary {
   background: rgba(97, 92, 104, 0.25);
   color: #c4bfcc;
+  border: 1px solid var(--border);
+}
+.b-member {
+  background: rgba(106, 10, 240, 0.35);
+  color: var(--slate-light);
   border: 1px solid var(--border);
 }
 
@@ -210,96 +216,25 @@
     box-shadow 0.15s ease;
 }
 
-.admin-section input::placeholder {
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
   color: var(--slate);
+  margin-bottom: 1.75rem;
 }
-
-.admin-section input:focus,
-.admin-section select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(36, 132, 157, 0.2);
-}
-
-.admin-section select option {
-  background: var(--navy-mid);
-  color: var(--white);
-}
-
-.pin-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.pin-input {
-  width: 200px;
-}
-
-.row-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.row-form input,
-.row-form select {
-  flex: 1;
-  min-width: 100px;
-}
-
-.members-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.member-row {
+.codingClub-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 13px;
-  color: var(--white);
+  justify-content: center;
 }
 
-.role-tag {
-  color: var(--slate);
-  font-size: 12px;
-  margin-left: 8px;
-}
-
-.del-btn {
-  background: none;
-  border: none;
-  color: var(--slate);
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0 4px;
-  line-height: 1;
-  transition: color 0.15s ease;
-}
-
-.del-btn:hover {
-  color: #e05a5a;
-  background: none;
-}
-
-.err {
-  font-size: 12px;
-  color: #e05a5a;
-  margin-top: 6px;
-}
-
-.empty {
-  color: var(--slate);
-  font-size: 13px;
-  padding: 1rem 0;
-  text-align: center;
-}
 
 @media (max-width: 640px) {
   .grid {

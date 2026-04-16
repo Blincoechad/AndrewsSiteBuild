@@ -58,6 +58,24 @@
   gap: 10px;
   margin-bottom: 1.5rem;
 }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--slate);
+  margin-bottom: 1.75rem;
+}
+.codingClub-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .card {
   background: var(--navy-mid);
@@ -109,7 +127,8 @@
   background: rgba(76, 175, 127, 0.2);
   color: #7ecfa9;
 }
-
+/* --- Name & badge (add a b- then position, then add color for that position.
+then go in JS file and change that position to the class matching the position) --- */
 .name {
   font-size: 14px;
   font-weight: 500;
@@ -137,7 +156,7 @@
   border: 1px solid rgba(201, 149, 111, 0.35);
 }
 .b-member {
-  background: rgba(97, 92, 104, 0.35);
+  background: rgba(106, 10, 240, 0.35);
   color: var(--slate-light);
   border: 1px solid var(--border);
 }
@@ -151,166 +170,26 @@
   color: #c4bfcc;
   border: 1px solid var(--border);
 }
+.b-dev {
+  background: rgba(11, 30, 203, 0.35);
+  color: rgb(110, 166, 236);
+  border: 1px solid var(--border);
+}
+.b-lead {
+  background: rgba(129, 10, 119, 0.2);
+  color: #dbb08e;
+  border: 1px solid rgba(194, 11, 176, 0.614);
+}
+.bdesigner {
+  background: rgba(197, 17, 23, 0.5);
+  color: #c4bfcc;
+  border: 1px solid var(--border);
+}
 
 .divider {
   height: 1px;
   background: var(--border);
   margin: 1.75rem 0;
-}
-
-.admin-section {
-  background: var(--navy-mid);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.1rem 1.25rem;
-  box-shadow:
-    0 24px 42px rgba(0, 0, 0, 0.5),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.admin-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.admin-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--slate-light);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.admin-section button {
-  background: var(--navy);
-  border: 1px solid var(--border-dark);
-  border-radius: 6px;
-  padding: 7px 16px;
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  color: var(--white);
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.admin-section button:hover {
-  background: var(--slate);
-  border-color: var(--slate);
-  color: var(--cream);
-}
-
-.admin-section button:active {
-  transform: scale(0.98);
-}
-
-.admin-section input,
-.admin-section select {
-  background: var(--cream);
-  border: 1px solid var(--border-dark);
-  border-radius: 6px;
-  padding: 7px 10px;
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 13px;
-  color: var(--white);
-  outline: none;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.admin-section input::placeholder {
-  color: var(--slate);
-}
-
-.admin-section input:focus,
-.admin-section select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(36, 132, 157, 0.2);
-}
-
-.admin-section select option {
-  background: var(--navy-mid);
-  color: var(--white);
-}
-
-.pin-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.pin-input {
-  width: 200px;
-}
-
-.row-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.row-form input,
-.row-form select {
-  flex: 1;
-  min-width: 100px;
-}
-
-.members-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.member-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 13px;
-  color: var(--white);
-}
-
-.role-tag {
-  color: var(--slate);
-  font-size: 12px;
-  margin-left: 8px;
-}
-
-.del-btn {
-  background: none;
-  border: none;
-  color: var(--slate);
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0 4px;
-  line-height: 1;
-  transition: color 0.15s ease;
-}
-
-.del-btn:hover {
-  color: #e05a5a;
-  background: none;
-}
-
-.err {
-  font-size: 12px;
-  color: #e05a5a;
-  margin-top: 6px;
-}
-
-.empty {
-  color: var(--slate);
-  font-size: 13px;
-  padding: 1rem 0;
-  text-align: center;
 }
 
 @media (max-width: 640px) {
