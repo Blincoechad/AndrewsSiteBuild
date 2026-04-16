@@ -319,6 +319,13 @@ h4 {
   line-height: 1.7;
 }
 
+.hero-image {
+  width: 20rem;
+  height: 17rem;
+  object-fit: cover;
+  transform: translateX(6rem);
+}
+
 /* Breadcrumb */
 .breadcrumb {
   display: flex;
@@ -1210,5 +1217,22 @@ h4 {
     flex-direction: column;
     gap: 8px;
     text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero-image {
+    margin-left: 0;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
 }
