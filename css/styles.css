@@ -945,10 +945,58 @@ h4 {
   position: relative;
   overflow: hidden;
 }
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hero-image {
   width: 60%;
   height: 60%;
   margin-bottom: 5rem;
+  animation: hero-fade-in 1.2s ease forwards;
+}
+
+.hero__eyebrow {
+  animation: hero-slide-in 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+.hero h1 {
+  animation: hero-slide-in 0.6s ease both;
+  animation-delay: 0.25s;
+}
+
+.hero__role {
+  animation: hero-slide-in 0.6s ease both;
+  animation-delay: 0.4s;
+}
+
+.hero__lead {
+  animation: hero-slide-in 0.6s ease both;
+  animation-delay: 0.55s;
+}
+
+.hero__cta {
+  animation: hero-slide-in 0.6s ease both;
+  animation-delay: 0.7s;
 }
 /* Colored border for first section after hero */
 .hero + .section {
