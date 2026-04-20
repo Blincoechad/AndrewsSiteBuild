@@ -1,32 +1,34 @@
 @import url("styles.css");
-   /* ============================================================
+/* ============================================================
    Club Roster — Site Theme Override
   
    ============================================================ */
 
 :root {
-  --navy:         #615c68;
-  --navy-mid:     #4a4752;
-  --slate:        #8b8793;
-  --slate-light:  #a9a0b0;
-  --cream:        #1a1a1f;
-  --white:        #dddddd;
-  --border:       #3e3d42;
-  --border-dark:  #4a4752;
-  --accent:       #24849d;
+  --navy: #615c68;
+  --navy-mid: #4a4752;
+  --slate: #8b8793;
+  --slate-light: #a9a0b0;
+  --cream: #1a1a1f;
+  --white: #dddddd;
+  --border: #3e3d42;
+  --border-dark: #4a4752;
+  --accent: #24849d;
   --accent-light: #d4e9f0;
-  --amber:        #c9956f;
-  --amber-light:  #e8d5c4;
-  --success:      #4caf7f;
-  --font-head:    "DM Serif Display", Georgia, serif;
-  --font-body:    "DM Sans", system-ui, sans-serif;
-  --radius:       8px;
-  --radius-lg:    14px;
-  --shadow-sm:    0 24px 42px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.2);
-  --shadow-md:    0 24px 42px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.2);
+  --amber: #c9956f;
+  --amber-light: #e8d5c4;
+  --success: #4caf7f;
+  --font-head: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 24px 42px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 24px 42px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -69,10 +71,15 @@ h2 {
 }
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }
 
 .subtitle {
@@ -115,17 +122,36 @@ h2 {
   font-weight: 500;
   flex-shrink: 0;
 }
-
+/* Avatar color (circle with intials)*/
 /* Accent (teal) */
-.av-blue   { background: rgba(36, 132, 157, 0.25); color: #6ec6d8; }
+.av-blue {
+  background: rgba(36, 132, 157, 0.25);
+  color: #6ec6d8;
+}
 /* Slate/purple */
-.av-teal   { background: rgba(97, 92, 104, 0.45);  color: var(--slate-light); }
+.av-teal {
+  background: rgba(97, 92, 104, 0.45);
+  color: var(--slate-light);
+}
 /* Navy */
-.av-purple { background: rgba(74, 71, 82, 0.6);    color: #c4bfcc; }
+.av-purple {
+  background: rgba(74, 71, 82, 0.6);
+  color: #c4bfcc;
+}
 /* Amber */
-.av-coral  { background: rgba(201, 149, 111, 0.25); color: #dbb08e; }
+.av-coral {
+  background: rgba(201, 149, 111, 0.25);
+  color: #dbb08e;
+}
 /* Success green */
-.av-amber  { background: rgba(76, 175, 127, 0.2);  color: #7ecfa9; }
+.av-amber {
+  background: rgba(76, 175, 127, 0.2);
+  color: #7ecfa9;
+}
+.av-green {
+  color: white;
+  background-color: green;
+}
 
 /* --- Name & badge (add a b- then position, then add color for that position.
 then go in JS file and change that position to the class matching the position) --- */
@@ -145,27 +171,41 @@ then go in JS file and change that position to the class matching the position) 
   letter-spacing: 0.02em;
 }
 
-.b-president { background: rgba(36, 132, 157, 0.2); 
-   color: #6ec6d8;  
-  border: 1px solid rgba(36,132,157,0.35); }
-.b-officer   { background: rgba(201, 149, 111, 0.2);
-   color: #dbb08e;
-   border: 1px solid rgba(201,149,111,0.35); }
-.b-member    { background: rgba(108, 25, 225, 0.35);
-    color: var(--slate-light); 
-    border: 1px solid var(--border); }
-.b-treasurer { background: rgba(76, 175, 127, 0.15); 
-  color: #7ecfa9;         
-  border: 1px solid rgba(76,175,127,0.3); }
-.b-secretary { background: rgba(97, 92, 104, 0.25);  
-  color: #c4bfcc;         
-  border: 1px solid var(--border); }
-.b-mentor {
-  background: rgba(197, 17, 23, 0.5);    
-  color: #c4bfcc;         
-  border: 1px solid var(--border); 
+.b-president {
+  background: rgba(36, 132, 157, 0.2);
+  color: #6ec6d8;
+  border: 1px solid rgba(36, 132, 157, 0.35);
 }
-
+.b-officer {
+  background: rgba(201, 149, 111, 0.2);
+  color: #dbb08e;
+  border: 1px solid rgba(201, 149, 111, 0.35);
+}
+.b-member {
+  background: rgba(86, 19, 179, 0.35);
+  color: var(--slate-light);
+  border: 1px solid var(--border);
+}
+.b-treasurer {
+  background: rgba(76, 175, 127, 0.15);
+  color: #7ecfa9;
+  border: 1px solid rgba(76, 175, 127, 0.3);
+}
+.b-secretary {
+  background: rgba(97, 92, 104, 0.25);
+  color: #c4bfcc;
+  border: 1px solid var(--border);
+}
+.b-mentor {
+  background: rgba(197, 17, 23, 0.5);
+  color: #c4bfcc;
+  border: 1px solid var(--border);
+}
+.b-assistant {
+  background-color: rgb(107, 152, 123);
+  color: white;
+  border: 1px solid rgb(16, 87, 11);
+}
 
 /* --- Divider --- */
 .divider {
@@ -208,7 +248,9 @@ button {
   font-size: 13px;
   cursor: pointer;
   color: var(--white);
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 button:hover {
@@ -220,4 +262,3 @@ button:hover {
 button:active {
   transform: scale(0.98);
 }
-

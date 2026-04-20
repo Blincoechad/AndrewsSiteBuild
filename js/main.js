@@ -43,15 +43,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ── Mark active link based on current URL ── */
   const currentPath = window.location.pathname;
+
+  // Strip any hardcoded active classes first
+  document
+    .querySelectorAll(".navbar__nav a, .navbar__nav button, .sub-nav a")
+    .forEach((el) => {
+      el.classList.remove("active");
+    });
+
   document.querySelectorAll(".navbar__nav a, .sub-nav a").forEach((link) => {
     const href = link.getAttribute("href");
-    if (
-      href &&
-      currentPath.endsWith(href.replace("../", "").replace("./", ""))
-    ) {
+    if (!href) return;
+    const normalizedHref = href.replace("../", "").replace("./", "");
+    // Use a stricter check: path must end with the full normalized href,
+    // preceded by either the start of the string or a "/"
+    const pattern = new RegExp(
+      `(^|/)${normalizedHref.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`,
+    );
+    if (pattern.test(currentPath)) {
       link.classList.add("active");
+      // If the link is inside a dropdown, also highlight the parent button
+      const parentLi = link.closest(".navbar__nav > li");
+      if (parentLi) {
+        const trigger = parentLi.querySelector(
+          ":scope > button[data-dropdown]",
+        );
+        if (trigger) trigger.classList.add("active");
+      }
     }
   });
+
+  // Highlight the parent dropdown button for any sub-page not directly listed
+  // Maps folder names to their dropdown data-dropdown attribute value
+  const sectionMap = {
+    hillsborough: "schools",
+    umgc: "schools",
+    schiller: "schools",
+    consulting: "consulting",
+    ieee: "ieee",
+    "ieee-cs": "ieee",
+    personal: "personal",
+  };
+  const folder = currentPath.split("/").filter(Boolean).slice(-2, -1)[0];
+  if (folder && sectionMap[folder]) {
+    const btn = document.querySelector(
+      `.navbar__nav button[data-dropdown="${sectionMap[folder]}"]`,
+    );
+    if (btn) btn.classList.add("active");
+  }
 
   /* ── Sub-nav smooth scroll to sections ── */
   document.querySelectorAll('.sub-nav a[href^="#"]').forEach((link) => {
@@ -123,24 +162,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 const ROLE_CONFIGS = {
   ieee: {
-    President:  { avatarClass: 'av-coral',   badgeClass: 'b-president' },
-    Officer:    { avatarClass: 'av-coral',  badgeClass: 'b-officer'   },
-    Treasurer:  { avatarClass: 'av-amber',  badgeClass: 'b-treasurer' },
-    Member:     { avatarClass: 'av-blue',   badgeClass: 'b-member'    },
+    President: { avatarClass: "av-coral", badgeClass: "b-president" },
+    Officer: { avatarClass: "av-coral", badgeClass: "b-officer" },
+    Treasurer: { avatarClass: "av-amber", badgeClass: "b-treasurer" },
+    Member: { avatarClass: "av-blue", badgeClass: "b-member" },
+    Assistant: { avatarClass: "av-green", badgeClass: "b-assistant" },
   },
-
+  //  Hillsborough page
   codingClub: {
-    Lead:       { avatarClass: 'av-coral', badgeClass: 'b-lead'      },
-    Developer:  { avatarClass: 'av-amber',  badgeClass: 'b-dev'       },
-    Designer:   { avatarClass: 'av-blue',   badgeClass: 'b-designer'    },
-    President:  { avatarClass: 'av-coral', badgeClass: 'b-president' },
+    Lead: { avatarClass: "av-coral", badgeClass: "b-lead" },
+    Developer: { avatarClass: "av-amber", badgeClass: "b-dev" },
+    Designer: { avatarClass: "av-blue", badgeClass: "b-designer" },
+    President: { avatarClass: "av-coral", badgeClass: "b-president" },
+    Analytics: { avatarClass: "av-blue", badgeClass: "b-analytics" },
   },
 
   umgcIEEE: {
-    Chair:      { avatarClass: 'av-coral',    badgeClass: 'b-chair'     },
-    ViceChair:  { avatarClass: 'av-amber', badgeClass: 'b-vice'      },
-    Member:     { avatarClass: 'av-blue',   badgeClass: 'b-member'    },
-  }
+    Chair: { avatarClass: "av-coral", badgeClass: "b-chair" },
+    ViceChair: { avatarClass: "av-amber", badgeClass: "b-vice" },
+    Member: { avatarClass: "av-blue", badgeClass: "b-member" },
+  },
 };
 
 // ===============================
@@ -152,19 +193,20 @@ const ROSTERS = {
     members: [
       { name: "Maria Garcia", role: "President" },
       { name: "Sam Lee", role: "Treasurer" },
-      { name: "Jordan Smith", role: "Member" }
-    ]
+      { name: "Jordan Smith", role: "Member" },
+      { name: "Chad Blincoe", role: "Assistant" },
+    ],
   },
-
+  // hillsborough coding club
   "coding-roster": {
     config: "codingClub",
     members: [
       { name: "Alex Dev", role: "Lead" },
       { name: "Chris Code", role: "Developer" },
       { name: "Taylor UI", role: "Designer" },
-      { name: "Taylor UI", role: "President" }
-
-    ]
+      { name: "Taylor UI", role: "President" },
+      { name: "Chad Blincoe", role: "Analytics" },
+    ],
   },
 
   "umgc-ieee": {
@@ -172,17 +214,17 @@ const ROSTERS = {
     members: [
       { name: "Riley Tech", role: "chair" },
       { name: "Jordan Net", role: "ViceChair" },
-      { name: "Casey Byte", role: "Member" }
-    ]
-  }
+      { name: "Casey Byte", role: "Member" },
+    ],
+  },
 };
 
-const DEFAULT_ROLE = { avatarClass: 'av-blue', badgeClass: 'b-member' };
+const DEFAULT_ROLE = { avatarClass: "av-blue", badgeClass: "b-member" };
 
 // ===============================
 // INIT
 // ===============================
-document.querySelectorAll('.roster-container').forEach(container => {
+document.querySelectorAll(".roster-container").forEach((container) => {
   const rosterId = container.dataset.rosterId;
   const roster = ROSTERS[rosterId];
 
@@ -191,7 +233,7 @@ document.querySelectorAll('.roster-container').forEach(container => {
   const ROLE_CONFIG = ROLE_CONFIGS[roster.config];
   const members = roster.members;
 
-  const grid = container.querySelector('.card-grid');
+  const grid = container.querySelector(".card-grid");
 
   render(grid, members, ROLE_CONFIG);
 });
@@ -200,11 +242,12 @@ document.querySelectorAll('.roster-container').forEach(container => {
 // HELPERS
 // ===============================
 function initials(name) {
-  return name.trim()
+  return name
+    .trim()
     .split(/\s+/)
-    .map(w => w[0]?.toUpperCase() || '')
+    .map((w) => w[0]?.toUpperCase() || "")
     .slice(0, 2)
-    .join('');
+    .join("");
 }
 
 function render(grid, members, ROLE_CONFIG) {
@@ -215,10 +258,11 @@ function render(grid, members, ROLE_CONFIG) {
     return;
   }
 
-  grid.innerHTML = members.map(m => {
-    const cfg = ROLE_CONFIG[m.role] || DEFAULT_ROLE;
+  grid.innerHTML = members
+    .map((m) => {
+      const cfg = ROLE_CONFIG[m.role] || DEFAULT_ROLE;
 
-    return `
+      return `
       <div class="card">
         <div class="avatar ${cfg.avatarClass}">
           ${initials(m.name)}
@@ -231,5 +275,6 @@ function render(grid, members, ROLE_CONFIG) {
         </div>
       </div>
     `;
-  }).join('');
+    })
+    .join("");
 }

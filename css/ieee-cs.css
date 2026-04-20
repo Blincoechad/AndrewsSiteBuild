@@ -18,7 +18,7 @@
 }
 
 .roster-container {
-  max-width: 700px;
+  width: 100%;
   margin: 2rem 0;
   padding: 0 1rem;
   background: var(--cream);
@@ -97,6 +97,10 @@
   background: rgba(76, 175, 127, 0.2);
   color: #7ecfa9;
 }
+.av-green {
+  color: white;
+  background-color: rgba(25, 214, 25, 0.271);
+}
 /* --- Name & badge (add a b- then position, then add color for that position.
 then go in JS file and change that position to the class matching the position) --- */
 .name {
@@ -120,13 +124,18 @@ then go in JS file and change that position to the class matching the position) 
   color: #6ec6d8;
   border: 1px solid rgba(36, 132, 157, 0.35);
 }
+.b-assistant {
+  color: rgb(231, 158, 158);
+  background-color: rgba(224, 66, 66, 0.507);
+   border: 1px solid rgba(224, 163, 157, 0.35);
+  }
 .b-officer {
   background: rgba(201, 149, 111, 0.2);
   color: #dbb08e;
   border: 1px solid rgba(201, 149, 111, 0.35);
 }
 .b-member {
-  background: rgba(97, 92, 104, 0.35);
+  background: rgba(135, 82, 208, 0.35);
   color: var(--slate-light);
   border: 1px solid var(--border);
 }
@@ -138,11 +147,6 @@ then go in JS file and change that position to the class matching the position) 
 .b-secretary {
   background: rgba(97, 92, 104, 0.25);
   color: #c4bfcc;
-  border: 1px solid var(--border);
-}
-.b-member {
-  background: rgba(106, 10, 240, 0.35);
-  color: var(--slate-light);
   border: 1px solid var(--border);
 }
 
@@ -218,10 +222,15 @@ then go in JS file and change that position to the class matching the position) 
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }
 
 .subtitle {
@@ -234,7 +243,6 @@ then go in JS file and change that position to the class matching the position) 
   align-items: center;
   justify-content: center;
 }
-
 
 @media (max-width: 640px) {
   .grid {

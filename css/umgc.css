@@ -30,7 +30,7 @@
 }
 
 .roster-container {
-  max-width: 700px;
+  width: 100%;
   margin: 2rem 0;
   padding: 0 1rem;
   background: var(--cream);
@@ -60,10 +60,15 @@
 }
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }
 
 .subtitle {
@@ -106,7 +111,7 @@
   font-weight: 500;
   flex-shrink: 0;
 }
-
+/* Avayar color badges (circle with intials inside)*/
 .av-blue {
   background: rgba(36, 132, 157, 0.25);
   color: #6ec6d8;
@@ -144,7 +149,7 @@ then go in JS file and change that position to the class matching the position) 
   margin-top: 4px;
   letter-spacing: 0.02em;
 }
-
+/* badge styling (bubble with role inside)*/
 .b-president {
   background: rgba(36, 132, 157, 0.2);
   color: #6ec6d8;
