@@ -55,6 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const href = link.getAttribute("href");
     if (!href) return;
     const normalizedHref = href.replace("../", "").replace("./", "");
+
+    // Special handling for "Home" link: only active at root index.html
+    if (normalizedHref === "index.html") {
+      // Check if this is the root index.html (no folder before it in the path)
+      const isRootIndexPage =
+        currentPath.endsWith("index.html") &&
+        !currentPath.split("/").slice(-2, -1)[0];
+      if (isRootIndexPage) {
+        link.classList.add("active");
+      }
+      return;
+    }
+
     // Use a stricter check: path must end with the full normalized href,
     // preceded by either the start of the string or a "/"
     const pattern = new RegExp(
