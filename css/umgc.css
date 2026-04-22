@@ -152,16 +152,31 @@ then go in JS file and change that position to the class matching the position) 
 /* badge styling (bubble with role inside)*/
 .b-president {
   background: rgba(36, 132, 157, 0.2);
-  color: #6ec6d8;
+  color: rgb(151, 186, 238);
   border: 1px solid rgba(36, 132, 157, 0.35);
+}
+.b-analytics {
+  color: rgb(21, 180, 69);
+  background-color: rgb(32, 56, 42);
+  border: 1px solid rgb(21, 180, 69);
+}
+.b-lead {
+  background: rgba(129, 10, 119, 0.2);
+  color: #dbb08e;
+  border: 1px solid rgba(194, 11, 176, 0.614);
+}
+.b-dev {
+  background: rgba(11, 30, 203, 0.35);
+  color: rgb(110, 166, 236);
+  border: 1px solid var(--border);
 }
 .b-officer {
   background: rgba(201, 149, 111, 0.2);
-  color: #dbb08e;
+  color: white;
   border: 1px solid rgba(201, 149, 111, 0.35);
 }
 .b-member {
-  background: rgba(106, 10, 240, 0.35);
+  background: rgba(91, 25, 183, 0.35);
   color: var(--slate-light);
   border: 1px solid var(--border);
 }
@@ -175,20 +190,15 @@ then go in JS file and change that position to the class matching the position) 
   color: #c4bfcc;
   border: 1px solid var(--border);
 }
-.b-dev {
-  background: rgba(11, 30, 203, 0.35);
-  color: rgb(110, 166, 236);
-  border: 1px solid var(--border);
+.b-designer {
+  background: rgba(254, 32, 69, 0.15);
+  color: #e86069;
+  border: 1px solid rgba(233, 97, 97, 0.3);
 }
-.b-lead {
-  background: rgba(129, 10, 119, 0.2);
-  color: #dbb08e;
-  border: 1px solid rgba(194, 11, 176, 0.614);
-}
-.bdesigner {
-  background: rgba(197, 17, 23, 0.5);
-  color: #c4bfcc;
-  border: 1px solid var(--border);
+.b-assistant {
+  background: rgba(233, 97, 97, 0.15);
+  color: #e86069;
+  border: 1px solid rgba(233, 97, 97, 0.3);
 }
 
 .divider {

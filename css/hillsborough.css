@@ -178,6 +178,7 @@ then go in JS file and change that position to the class matching the position) 
 .b-analytics {
   color: rgb(21, 180, 69);
   background-color: rgb(32, 56, 42);
+  border: 1px solid rgb(21, 180, 69);
 }
 .b-lead {
   background: rgba(129, 10, 119, 0.2);
