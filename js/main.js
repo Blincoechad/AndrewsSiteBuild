@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Each role maps to one avatar color class and one badge class.
 // To change a role's color, edit the avatarClass value here.
-// Available avatar classes: av-teal  av-blue  av-purple  av-coral  av-amber  av-green
+// Current avatar classes used by ROLE_CONFIGS: av-blue  av-coral  av-amber  av-green
 // ===============================
 // ROLE CONFIGS (PER CLUB)
 // ===============================
@@ -204,7 +204,7 @@ const ROSTERS = {
   "ieee-roles": {
     config: "ieee",
     members: [
-      { name: "Maria Garcia", role: "President" },
+      { name: "maria Garcia", role: "President" },
       { name: "Sam Lee", role: "Treasurer" },
       { name: "Jordan Smith", role: "Member" },
       { name: "Chad Blincoe", role: "Assistant" },
@@ -225,7 +225,7 @@ const ROSTERS = {
   "umgc-ieee": {
     config: "umgcIEEE",
     members: [
-      { name: "Riley Tech", role: "chair" },
+      { name: "riley Tech", role: "Chair" },
       { name: "Jordan Net", role: "ViceChair" },
       { name: "Casey Byte", role: "Member" },
     ],

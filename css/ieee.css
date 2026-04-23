@@ -56,12 +56,6 @@ h2 {
   letter-spacing: 0.01em;
 }
 
-.subtitle {
-  font-size: 14px;
-  color: var(--slate);
-  margin-bottom: 1.75rem;
-}
-
 /* --- Member cards --- */
 .grid {
   display: grid;
@@ -82,11 +76,6 @@ h2 {
   }
 }
 
-.subtitle {
-  font-size: 14px;
-  color: var(--slate);
-  margin-bottom: 1.75rem;
-}
 .codingClub-title {
   display: flex;
   align-items: center;
@@ -122,28 +111,15 @@ h2 {
   font-weight: 500;
   flex-shrink: 0;
 }
-/* Avatar color (circle with intials)*/
-/* Accent (teal) */
+/* Avatar role color classes used by IEEE rosters */
 .av-blue {
   background: rgba(36, 132, 157, 0.25);
   color: #6ec6d8;
 }
-/* Slate/purple */
-.av-teal {
-  background: rgba(97, 92, 104, 0.45);
-  color: var(--slate-light);
-}
-/* Navy */
-.av-purple {
-  background: rgba(74, 71, 82, 0.6);
-  color: #c4bfcc;
-}
-/* Amber */
 .av-coral {
   background: rgba(201, 149, 111, 0.25);
   color: #dbb08e;
 }
-/* Success green */
 .av-amber {
   background: rgba(76, 175, 127, 0.2);
   color: #7ecfa9;
@@ -153,8 +129,7 @@ h2 {
   background-color: green;
 }
 
-/* --- Name & badge (add a b- then position, then add color for that position.
-then go in JS file and change that position to the class matching the position) --- */
+/* Badge role color classes used by IEEE rosters */
 .name {
   font-size: 14px;
   font-weight: 500;
@@ -176,21 +151,6 @@ then go in JS file and change that position to the class matching the position) 
   color: rgb(151, 186, 238);
   border: 1px solid rgba(36, 132, 157, 0.35);
 }
-.b-analytics {
-  color: rgb(21, 180, 69);
-  background-color: rgb(32, 56, 42);
-  border: 1px solid rgb(21, 180, 69);
-}
-.b-lead {
-  background: rgba(129, 10, 119, 0.2);
-  color: #dbb08e;
-  border: 1px solid rgba(194, 11, 176, 0.614);
-}
-.b-dev {
-  background: rgba(11, 30, 203, 0.35);
-  color: rgb(110, 166, 236);
-  border: 1px solid var(--border);
-}
 .b-officer {
   background: rgba(201, 149, 111, 0.2);
   color: white;
@@ -206,16 +166,6 @@ then go in JS file and change that position to the class matching the position) 
   color: #7ecfa9;
   border: 1px solid rgba(76, 175, 127, 0.3);
 }
-.b-secretary {
-  background: rgba(97, 92, 104, 0.25);
-  color: #c4bfcc;
-  border: 1px solid var(--border);
-}
-.b-designer {
-  background: rgba(254, 32, 69, 0.15);
-  color: #e86069;
-  border: 1px solid rgba(233, 97, 97, 0.3);
-}
 .b-assistant {
   background: rgba(233, 97, 97, 0.15);
   color: #e86069;
@@ -227,30 +177,6 @@ then go in JS file and change that position to the class matching the position) 
   height: 1px;
   background: var(--border);
   margin: 1.75rem 0;
-}
-
-/* --- Admin panel --- */
-.admin-section {
-  background: var(--navy-mid);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.1rem 1.25rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.admin-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.admin-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--slate-light);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 /* --- Buttons --- */

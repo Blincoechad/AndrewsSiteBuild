@@ -87,9 +87,6 @@ h4 {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.section--sm {
-  padding: 48px 0;
-}
 
 /* ── Navbar ── */
 .navbar {
@@ -507,11 +504,6 @@ h4 {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
 
 /* ── Section heading ── */
 .section-heading {
@@ -573,19 +565,10 @@ h4 {
   color: #e8d5c4;
   border-color: #7a6245;
 }
-.tag--green {
-  background: #f0fff4;
-  color: var(--success);
-  border-color: #9ae6b4;
-}
 .tag--slate {
   background: #f7fafc;
   color: var(--slate);
   border-color: var(--border);
-}
-.tag--navy {
-  background: var(--navy);
-  color: var(--white);
 }
 
 /* ── Sub-nav (within a school page) ── */
@@ -730,11 +713,6 @@ h4 {
   color: #d4e9f0;
 }
 
-.highlight-box--amber {
-  background: #5a4835;
-  border-left-color: #c9956f;
-}
-
 /* ── List styles ── */
 .clean-list {
   list-style: none;
@@ -823,33 +801,6 @@ h4 {
 .timeline-item__content p {
   font-size: 14px;
   color: #c5c2ca;
-}
-
-/* ── Partnership / Logo strip ── */
-.partner-strip {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.partner-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: #2a2a2e;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 500;
-  color: #c5c2ca;
-}
-
-.partner-badge .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
 }
 
 /* ── Footer ── */
@@ -1160,16 +1111,6 @@ h4 {
   transform: translateY(-4px);
 }
 
-.btn--accent {
-  background: #24849d;
-  color: var(--white);
-}
-.btn--accent:hover {
-  background: #1a6278;
-  color: var(--white);
-  transform: translateY(-1px);
-}
-
 /* ── Color accent strips for section categories ── */
 .accent--blue {
   color: #24849d;
@@ -1187,28 +1128,9 @@ h4 {
   color: #4caf7f;
 }
 
-.border--blue {
-  border-color: #24849d !important;
-}
-.border--amber {
-  border-color: #c9956f !important;
-}
-.border--purple {
-  border-color: #8b7ba8 !important;
-}
-.border--teal {
-  border-color: #24849d !important;
-}
-.border--green {
-  border-color: #4caf7f !important;
-}
-
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
   .footer__grid {
