@@ -1105,6 +1105,12 @@ h4 {
   color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+
+.hero__cta .btn--outline {
+  color: #7fcbdf;
+  border-color: #7fcbdf;
+}
+
 .btn--outline:hover {
   background: var(--accent);
   color: var(--white);

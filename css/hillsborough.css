@@ -124,17 +124,25 @@
 }
 /* Avatar role color classes used by Hillsborough coding roster */
 
-.av-blue {
-  background: rgba(36, 132, 157, 0.25);
-  color: #6ec6d8;
+.av-analytics {
+  color: rgb(21, 180, 69);
+  background-color: rgb(32, 56, 42);
 }
-.av-coral {
-  background: rgba(235, 136, 66, 0.25);
+.av-designer {
+  background: rgba(254, 32, 69, 0.15);
+  color: #e86069;
+}
+.av-dev {
+  background: rgba(11, 30, 203, 0.35);
+  color: rgb(110, 166, 236);
+}
+.av-lead {
+  background: rgba(129, 10, 119, 0.2);
   color: #dbb08e;
 }
-.av-amber {
-  background: rgba(35, 191, 82, 0.2);
-  color: #7ecfa9;
+.av-president {
+  background: rgba(185, 205, 37, 0.25);
+  color: rgb(151, 186, 238);
 }
 
 /* Badge role color classes used by Hillsborough coding roster */

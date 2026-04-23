@@ -175,25 +175,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 const ROLE_CONFIGS = {
   ieee: {
-    President: { avatarClass: "av-coral", badgeClass: "b-president" },
-    Officer: { avatarClass: "av-coral", badgeClass: "b-officer" },
-    Treasurer: { avatarClass: "av-amber", badgeClass: "b-treasurer" },
-    Member: { avatarClass: "av-blue", badgeClass: "b-member" },
-    Assistant: { avatarClass: "av-green", badgeClass: "b-assistant" },
+    President: { avatarClass: "av-president", badgeClass: "b-president" },
+    Officer: { avatarClass: "av-president", badgeClass: "b-officer" },
+    Treasurer: { avatarClass: "av-treasurer", badgeClass: "b-treasurer" },
+    Member: { avatarClass: "av-member", badgeClass: "b-member" },
+    Assistant: { avatarClass: "av-assistant", badgeClass: "b-assistant" },
   },
   //  Hillsborough page
   codingClub: {
-    Lead: { avatarClass: "av-coral", badgeClass: "b-lead" },
-    Developer: { avatarClass: "av-amber", badgeClass: "b-dev" },
-    Designer: { avatarClass: "av-blue", badgeClass: "b-designer" },
-    President: { avatarClass: "av-coral", badgeClass: "b-president" },
-    Analytics: { avatarClass: "av-blue", badgeClass: "b-analytics" },
+    Lead: { avatarClass: "av-lead", badgeClass: "b-lead" },
+    Developer: { avatarClass: "av-dev", badgeClass: "b-dev" },
+    Designer: { avatarClass: "av-designer", badgeClass: "b-designer" },
+    President: { avatarClass: "av-president", badgeClass: "b-president" },
+    Analytics: { avatarClass: "av-analytics", badgeClass: "b-analytics" },
   },
 
   umgcIEEE: {
-    Chair: { avatarClass: "av-coral", badgeClass: "b-chair" },
-    ViceChair: { avatarClass: "av-amber", badgeClass: "b-vice" },
-    Member: { avatarClass: "av-blue", badgeClass: "b-member" },
+    President: { avatarClass: "av-president", badgeClass: "b-president" },
+    Treasurer: { avatarClass: "av-treasurer", badgeClass: "b-treasurer" },
+    Member: { avatarClass: "av-member", badgeClass: "b-member" },
+    Assistant: { avatarClass: "av-assistant", badgeClass: "b-assistant" },
   },
 };
 
@@ -225,8 +226,8 @@ const ROSTERS = {
   "umgc-ieee": {
     config: "umgcIEEE",
     members: [
-      { name: "riley Tech", role: "Chair" },
-      { name: "Jordan Net", role: "ViceChair" },
+      { name: "riley Tech", role: "President" },
+      { name: "Jordan Net", role: "Treasurer" },
       { name: "Casey Byte", role: "Member" },
     ],
   },

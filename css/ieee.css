@@ -116,18 +116,23 @@ h2 {
   background: rgba(36, 132, 157, 0.25);
   color: #6ec6d8;
 }
-.av-coral {
+.av-president {
   background: rgba(201, 149, 111, 0.25);
   color: #dbb08e;
 }
-.av-amber {
+.av-member {
   background: rgba(76, 175, 127, 0.2);
   color: #7ecfa9;
 }
-.av-green {
-  color: white;
-  background-color: green;
+.av-assistant {
+  background: rgba(147, 97, 233, 0.15);
+  color: #a561b1;
 }
+.av-treasurer {
+  background: rgba(76, 175, 127, 0.15);
+  color: #65ba93;
+}
+
 
 /* Badge role color classes used by IEEE rosters */
 .name {

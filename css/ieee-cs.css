@@ -70,21 +70,25 @@
   font-weight: 500;
   flex-shrink: 0;
 }
-.av-blue {
-  background: rgba(36, 132, 157, 0.25);
-  color: #6ec6d8;
+.av-member {
+  background: rgba(148, 103, 221, 0.82);
+  color: rgb(118, 6, 118);
 }
-.av-coral {
-  background: rgba(201, 149, 111, 0.25);
-  color: #dbb08e;
+.av-vice {
+  background: rgba(36, 132, 157, 0.82);
+  color: rgb(36, 132, 157);
 }
-.av-amber {
-  background: rgba(76, 175, 127, 0.2);
-  color: #7ecfa9;
+.av-president {
+  background: rgba(201, 149, 111, 0.82);
+  color: rgb(247, 221, 202);
 }
-.av-green {
-  color: white;
-  background-color: rgba(25, 214, 25, 0.271);
+.av-treasurer {
+  background: rgba(76, 175, 127, 0.82);
+  color: rgb(196, 236, 217);
+}
+.av-assistant {
+  background: rgba(233, 97, 97, 0.82);
+  color: rgb(237, 186, 186);
 }
 /* Badge role color classes used by IEEE rosters */
 .name {

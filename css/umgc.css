@@ -101,18 +101,32 @@
   flex-shrink: 0;
 }
 /* Avatar role color classes used by UMGC IEEE roster */
-.av-blue {
-  background: rgba(36, 132, 157, 0.25);
-  color: #6ec6d8;
+
+.av-intern {
+  color: white;
+  background-color: rgba(25, 214, 25, 0.271);
 }
-.av-coral {
+.av-chair {
+  background: rgba(11, 30, 203, 0.35);
+  color: rgb(110, 166, 236);
+}
+.av-vice {
+  background: rgba(129, 10, 119, 0.2);
+  color: #dbb08e;
+}
+.av-member {
+  background: rgba(148, 103, 221, 0.82);
+  color: rgb(118, 6, 118);
+}
+.av-president {
   background: rgba(201, 149, 111, 0.25);
   color: #dbb08e;
 }
-.av-amber {
-  background: rgba(76, 175, 127, 0.2);
+.av-treasurer {
+  background: rgba(76, 175, 127, 0.15);
   color: #7ecfa9;
 }
+
 
 /* Badge role color classes used by UMGC IEEE roster */
 .name {
@@ -147,6 +161,17 @@
   color: rgb(110, 166, 236);
   border: 1px solid rgb(101, 101, 233);
 }
+.b-president {
+  background: rgba(201, 149, 111, 0.25);
+  color: #dbb08e;
+  border: 1px solid rgba(201, 149, 111, 0.35);
+}
+.b-treasurer {
+  background: rgba(76, 175, 127, 0.15);
+  color: #7ecfa9;
+}
+
+
 
 @media (max-width: 640px) {
   .grid {
