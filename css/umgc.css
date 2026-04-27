@@ -74,10 +74,11 @@
   }
 }
 
-.codingClub-title {
+.roster-container .codingClub-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 28px;
 }
 
 .roster-container .card {
