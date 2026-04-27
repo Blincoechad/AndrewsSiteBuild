@@ -30,6 +30,17 @@
   margin: 1rem;
 }
 
+.umgc-site-link {
+  margin-top: 16px;
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.umgc-site-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
 .roster-container {
   width: 100%;
   margin: 2rem 0;

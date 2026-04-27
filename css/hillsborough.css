@@ -39,6 +39,33 @@
   margin-bottom: 50px;
 }
 
+.hcc-site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.hcc-site-link {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.hcc-site-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.hcc-linkedin-link {
+  border-color: var(--amber);
+  color: var(--amber-light);
+}
+
+.hcc-linkedin-link:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
 .past-classes-intro {
   margin-bottom: 40px;
 }
@@ -153,7 +180,7 @@
 }
 /* Avatar role color classes used by Hillsborough coding roster */
 
-.av-analytics {
+.av-member {
   color: rgb(21, 180, 69);
   background-color: rgb(32, 56, 42);
 }
@@ -197,7 +224,7 @@
   color: rgb(151, 186, 238);
   border: 1px solid rgba(36, 132, 157, 0.35);
 }
-.b-analytics {
+.b-member {
   color: rgb(21, 180, 69);
   background-color: rgb(32, 56, 42);
   border: 1px solid rgb(21, 180, 69);

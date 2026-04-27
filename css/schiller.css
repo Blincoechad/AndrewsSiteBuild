@@ -1,6 +1,17 @@
 @import url("styles.css");
 .SchoolLogo-Schiller {
-    max-width: 8rem;
-    height: auto;
-    margin: 1rem;
+  max-width: 8rem;
+  height: auto;
+  margin: 1rem;
+}
+
+.schiller-site-link {
+  margin-top: 16px;
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.schiller-site-link:hover {
+  background: var(--accent);
+  color: var(--white);
 }

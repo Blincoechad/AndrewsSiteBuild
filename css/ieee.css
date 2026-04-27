@@ -257,6 +257,38 @@ button:active {
   transform: scale(0.98);
 }
 
+.ieee-site-link {
+  margin-top: 16px;
+  border-color: var(--amber);
+  color: var(--amber-light);
+}
+
+.ieee-site-link:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.ieee-site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.ieee-site-links .ieee-site-link {
+  margin-top: 0;
+}
+
+.ieee-linkedin-link {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ieee-linkedin-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
 /* INLINE STYLE MIGRATION UTILITIES */
 .u-bg-school-blue {
   background: #2b6cb0;

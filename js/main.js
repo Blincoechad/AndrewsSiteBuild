@@ -255,7 +255,7 @@ const ROLE_CONFIGS = {
     Developer: { avatarClass: "av-dev", badgeClass: "b-dev" },
     Designer: { avatarClass: "av-designer", badgeClass: "b-designer" },
     President: { avatarClass: "av-president", badgeClass: "b-president" },
-    Analytics: { avatarClass: "av-analytics", badgeClass: "b-analytics" },
+    Member: { avatarClass: "av-member", badgeClass: "b-member" },
   },
 
   umgcIEEE: {
@@ -273,7 +273,7 @@ const ROSTERS = {
   "ieee-roles": {
     config: "ieee",
     members: [
-      { name: "maria Garcia", role: "President" },
+      { name: "Andy Seely", role: "President" },
       { name: "Sam Lee", role: "Treasurer" },
       { name: "Jordan Smith", role: "Member" },
       { name: "Chad Blincoe", role: "Assistant" },
@@ -285,23 +285,23 @@ const ROSTERS = {
     members: [
       { name: "Alex Dev", role: "Lead" },
       { name: "Chris Code", role: "Developer" },
-      { name: "Taylor UI", role: "Designer" },
-      { name: "Taylor UI", role: "President" },
-      { name: "Chad Blincoe", role: "Analytics" },
+      { name: "Chad Blincoe", role: "Designer" },
+      { name: "Andy Seely", role: "President" },
+      { name: "Bob Smith", role: "Member" },
     ],
   },
 
   "umgc-ieee": {
     config: "umgcIEEE",
     members: [
-      { name: "riley Tech", role: "President" },
+      { name: "Andy Seely", role: "President" },
       { name: "Jordan Net", role: "Treasurer" },
       { name: "Casey Byte", role: "Member" },
     ],
   },
 };
 
-const DEFAULT_ROLE = { avatarClass: "av-blue", badgeClass: "b-member" };
+const DEFAULT_ROLE = { avatarClass: "av-member", badgeClass: "b-member" };
 
 // ===============================
 // INIT

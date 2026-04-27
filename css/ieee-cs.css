@@ -257,6 +257,39 @@
 .u-mt-20 {
   margin-top: 20px;
 }
+
+.ieee-cs-site-link {
+  margin-top: 16px;
+  border-color: var(--amber);
+  color: var(--amber-light);
+}
+
+.ieee-cs-site-link:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.ieee-cs-site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.ieee-cs-site-links .ieee-cs-site-link {
+  margin-top: 0;
+}
+
+.ieee-cs-linkedin-link {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ieee-cs-linkedin-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
 .u-mt-24 {
   margin-top: 24px;
 }
