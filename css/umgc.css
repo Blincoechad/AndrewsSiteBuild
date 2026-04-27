@@ -16,6 +16,7 @@
   --amber-light: #e8d5c4;
   --success: #4caf7f;
 }
+
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -32,7 +33,6 @@
 .roster-container {
   width: 100%;
   margin: 2rem 0;
-  padding: 0 1rem;
   background: var(--cream);
   color: var(--white);
 }
@@ -54,14 +54,23 @@
 }
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-bottom: 6px;
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
   .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -71,22 +80,34 @@
   justify-content: center;
 }
 
-.card {
+.roster-container .card {
   background: var(--navy-mid);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   padding: 14px 16px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 12px;
-  box-shadow:
-    0 24px 42px rgba(0, 0, 0, 0.5),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.15s ease;
+  min-width: 0;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
 }
 
-.card:hover {
-  border-color: var(--slate);
+.roster-container .card > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.roster-container .card:hover {
+  border-color: var(--border);
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(36, 132, 157, 0.55),
+    0 0 0 6px rgba(36, 132, 157, 0.18);
 }
 
 .avatar {
@@ -127,12 +148,12 @@
   color: #7ecfa9;
 }
 
-
 /* Badge role color classes used by UMGC IEEE roster */
 .name {
   font-size: 14px;
   font-weight: 500;
   color: var(--white);
+  overflow-wrap: anywhere;
 }
 
 .badge {
@@ -171,10 +192,102 @@
   color: #7ecfa9;
 }
 
-
-
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
+}
+
+@media (max-width: 560px) {
+  .roster-container .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+
+  .name {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .badge {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+/* INLINE STYLE MIGRATION UTILITIES */
+.u-bg-school-blue {
+  background: #2b6cb0;
+}
+.u-bg-school-teal {
+  background: #2c7a7b;
+}
+.u-bg-school-amber {
+  background: #b7791f;
+}
+
+.u-border-top-blue {
+  border-top: 3px solid #2b6cb0;
+}
+.u-border-top-teal {
+  border-top: 3px solid #2c7a7b;
+}
+.u-border-top-amber {
+  border-top: 3px solid #b7791f;
+}
+.u-border-top-var-amber {
+  border-top: 3px solid var(--amber);
+}
+.u-border-top-purple {
+  border-top: 3px solid #5a4db0;
+}
+.u-border-top-green {
+  border-top: 3px solid #276749;
+}
+
+.u-border-left-purple {
+  border-left: 3px solid #5a4db0;
+}
+.u-border-left-var-amber {
+  border-left: 3px solid var(--amber);
+}
+
+.u-color-accent {
+  color: var(--accent);
+}
+
+.u-mt-20 {
+  margin-top: 20px;
+}
+.u-mt-24 {
+  margin-top: 24px;
+}
+
+.u-max-w-600 {
+  max-width: 600px;
+}
+.u-max-w-760 {
+  max-width: 760px;
+}
+
+.u-section-white-top-border {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+.u-summary-muted {
+  margin-top: 16px;
+  color: var(--slate);
+  max-width: 700px;
 }

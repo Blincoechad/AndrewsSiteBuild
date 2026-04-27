@@ -165,6 +165,74 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.transition = "opacity 0.4s ease, transform 0.4s ease";
     fadeObserver.observe(el);
   });
+
+  /* ── Recommendation card modal ── */
+  const recModal = document.getElementById("rec-modal");
+  if (recModal) {
+    const modalName = document.getElementById("rec-modal-name");
+    const modalText = recModal.querySelector(".rec-modal__text");
+    const modalClose = recModal.querySelector(".rec-modal__close");
+    const modalBackdrop = recModal.querySelector(".rec-modal__backdrop");
+
+    function openModal(name, text) {
+      modalName.textContent = name;
+      modalText.textContent = text;
+      recModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      recModal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    function bindCardsToModal(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      section.querySelectorAll(".card").forEach((card) => {
+        const openCardModal = () => {
+          const name = card.querySelector("h3")?.textContent.trim() ?? "";
+          const text =
+            card.querySelector("p:not(.card__label)")?.textContent.trim() ?? "";
+          openModal(name, text);
+        };
+
+        card.style.cursor = "pointer";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.addEventListener("click", openCardModal);
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openCardModal();
+          }
+        });
+      });
+    }
+
+    bindCardsToModal("recommendations");
+    bindCardsToModal("expertise");
+
+    modalClose.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !recModal.hidden) closeModal();
+    });
+  }
+
+  /* ── Timeline collapsible toggle ── */
+  const timelineToggle = document.getElementById("timeline-toggle");
+  const timelineHidden = document.getElementById("timeline-hidden");
+
+  if (timelineToggle && timelineHidden) {
+    timelineToggle.addEventListener("click", () => {
+      const isOpen = timelineHidden.classList.toggle("open");
+      timelineToggle.classList.toggle("open", isOpen);
+      timelineToggle.textContent = isOpen ? "Show Less" : "Show More";
+    });
+  }
 });
 
 // Each role maps to one avatar color class and one badge class.
