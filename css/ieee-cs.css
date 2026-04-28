@@ -273,7 +273,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 34px;
 }
 
 .ieee-cs-site-links .ieee-cs-site-link {
@@ -288,6 +288,12 @@
 .ieee-cs-linkedin-link:hover {
   background: var(--accent);
   color: var(--white);
+}
+
+#projects .grid-3 .card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border);
+  transform: none;
 }
 
 .u-mt-24 {

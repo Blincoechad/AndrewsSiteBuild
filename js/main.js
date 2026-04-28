@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     consulting: "consulting",
     ieee: "ieee",
     "ieee-cs": "ieee",
-    personal: "personal",
   };
   const folder = currentPath.split("/").filter(Boolean).slice(-2, -1)[0];
   if (folder && sectionMap[folder]) {
@@ -152,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateY(0)";
+
           fadeObserver.unobserve(entry.target);
         }
       });
