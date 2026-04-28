@@ -5,6 +5,7 @@ This repository contains the source for a multi-section personal and professiona
 ## What This Website Is Used For
 
 The site serves as a central hub for:
+
 - Professional profile and background
 - Academic work across multiple schools
 - IEEE and IEEE Computer Society involvement
@@ -64,6 +65,7 @@ Edit roster data in `js/main.js` under the section:
 ### 1) Find the roster you want to update
 
 Examples currently used:
+
 - `"ieee-roles"`
 - `"coding-roster"`
 - `"umgc-ieee"`
@@ -99,6 +101,7 @@ President: { avatarClass: "av-president", badgeClass: "b-president" }
 ```
 
 You can either:
+
 - Reuse existing classes, or
 - Point a role to new classes you create
 
@@ -113,8 +116,8 @@ Define the class colors in the stylesheet used by that page section:
 
 Typical class patterns:
 
-- Avatar circle classes: `.av-*`
-- Badge pill classes: `.b-*`
+- Avatar circle classes: `.av-name of postion or role`
+- Badge pill classes: `.b-name of position or role`
 
 Example:
 
@@ -134,5 +137,6 @@ Example:
 ## Notes
 
 - Social links and contact details are currently hard-coded in page HTML.
-- Some project TODO items also exist in `.ReadMe`.
+- Some project TODO items also exist in `.env` and if anything private needs to be added
+  it can go in the `.env` files as well.
 - This README is focused on current structure and roster/theme maintenance.

@@ -371,6 +371,8 @@ h4 {
 
 .recommendation-card {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 #recommendations .recommendation-card:hover {
@@ -509,6 +511,11 @@ h4 {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.recommendation-card__arrow {
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 /* ── Grid layouts ── */

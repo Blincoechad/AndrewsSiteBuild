@@ -195,7 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const openCardModal = () => {
           const name = card.querySelector("h3")?.textContent.trim() ?? "";
           const text =
-            card.querySelector("p:not(.card__label)")?.textContent.trim() ?? "";
+            card.dataset.recText ??
+            card.querySelector("p:not(.card__label)")?.textContent.trim() ??
+            "";
           openModal(name, text);
         };
 
