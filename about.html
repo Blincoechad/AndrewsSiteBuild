@@ -9,6 +9,147 @@
       content="Professional overview of Andy Seely — educator, technology consultant, and IEEE member."
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Publication Cards */
+      .pub-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .pub-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.1rem 1.25rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        cursor: pointer;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.22s ease;
+      }
+      .pub-card:hover,
+      .pub-card:focus-visible {
+        border-color: var(--accent);
+        box-shadow:
+          0 0 0 1px rgba(36, 132, 157, 0.25),
+          0 0 14px rgba(36, 132, 157, 0.35);
+        outline: none;
+      }
+      .pub-card--book {
+        border-top-color: #c9956f;
+      }
+      .pub-card--article {
+        border-top-color: var(--accent);
+      }
+      .pub-card--talk {
+        border-top-color: #9b7ed4;
+      }
+      .pub-card__meta {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .pub-card__date {
+        font-size: 0.74rem;
+        color: var(--slate-light);
+      }
+      .pub-card__title {
+        font-size: 0.93rem;
+        font-weight: 600;
+        color: var(--accent-light);
+        line-height: 1.4;
+        margin: 0;
+      }
+      .pub-card__source {
+        font-size: 0.78rem;
+        color: var(--slate-light);
+        margin: 0;
+      }
+      .pub-card__desc {
+        font-size: 0.82rem;
+        color: var(--slate-light);
+        line-height: 1.5;
+        margin: 0;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-clamp: 3;
+        overflow: hidden;
+      }
+      .pub-card__arrow {
+        font-size: 0.78rem;
+        color: var(--accent);
+        margin-top: auto;
+        padding-top: 0.75rem;
+        font-weight: 600;
+      }
+      .rec-modal--pub .rec-modal__box {
+        max-height: 82vh;
+        overflow-y: auto;
+      }
+      #pub-toggle {
+        position: sticky;
+        bottom: 1.5rem;
+        z-index: 50;
+        background: rgba(18, 18, 22, 0.88);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-color: var(--accent);
+      }
+      .pub-cards-hidden {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 1.25rem;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition:
+          max-height 0.5s ease,
+          opacity 0.35s ease;
+        margin-top: 0;
+      }
+      .pub-cards-hidden.open {
+        max-height: 9000px;
+        opacity: 1;
+        margin-top: 1.25rem;
+      }
+      .rec-modal--pub .pub-modal__meta {
+        font-size: 0.8rem;
+        color: var(--slate-light);
+        margin: 0 0 0.5rem;
+      }
+      .rec-modal--pub .pub-modal__title {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
+      }
+      .rec-modal--pub .pub-modal__citation {
+        font-size: 0.78rem;
+        color: var(--slate);
+        font-style: italic;
+        margin-top: 0.75rem;
+      }
+      .rec-modal--pub .pub-modal__link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.88rem;
+        text-decoration: none;
+      }
+      .rec-modal--pub .pub-modal__link[hidden] {
+        display: none !important;
+      }
+      .rec-modal--pub .pub-modal__link:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -118,6 +259,7 @@
               <a href="#volunteer">Volunteer</a>
               <a href="#recommendations">Recommendations</a>
               <a href="#education">Education</a>
+              <a href="#publications">Publications</a>
             </div>
           </li>
         </ul>
@@ -773,9 +915,656 @@
               </div>
             </div>
           </section>
+
+          <!-- ── PUBLICATIONS ── -->
+          <section id="publications" class="content-block">
+            <div class="section-heading--line-center">
+              <h2>Publications &amp; Presentations</h2>
+            </div>
+            <p>
+              Articles, book chapters, conference presentations, and invited
+              talks spanning technical management, system administration, and
+              cybersecurity education — 2001 to present.
+            </p>
+
+            <div class="pub-cards-grid">
+              <div
+                class="pub-card pub-card--book"
+                data-pub-title="The Virtual Leader: Developing Skills to Lead and Manage Distributed Teams"
+                data-pub-date="Jan 2016"
+                data-pub-source="IGI Global · Strategic Management and Leadership for Systems Development in Virtual Spaces"
+                data-pub-desc="Offers a working definition of the concepts of virtual, management, leadership, and team, and proposes pragmatic tools and solutions to management and leadership challenges in virtual, distributed team situations. Practical experiences are surveyed, including scenarios of remote team, remote team member, distributed learning, and traveling manager. Descriptions of tools and techniques are offered, along with a set of guiding concepts and principles to apply to any virtual leadership situation."
+                data-pub-citation="Graham, C. (2016). Strategic Management and Leadership for Systems Development in Virtual Spaces (pp. 1–389). IGI Global."
+                data-pub-link="https://www.igi-global.com/book/strategic-management-leadership-systems-development/137139"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--amber">Book Chapter</span>
+                  <span class="pub-card__date">Jan 2016 · IGI Global</span>
+                </div>
+                <h3 class="pub-card__title">
+                  The Virtual Leader: Developing Skills to Lead and Manage
+                  Distributed Teams
+                </h3>
+                <p class="pub-card__source">
+                  <em>
+                    Strategic Management and Leadership for Systems Development
+                    in Virtual Spaces
+                  </em>
+                </p>
+                <p class="pub-card__desc">
+                  Proposes pragmatic tools and solutions for virtual,
+                  distributed team management and leadership challenges, drawing
+                  on practical scenarios of remote teams and traveling managers.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: I'm the Manager, This Is My Job"
+                data-pub-date="Dec 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="Opens a window into how technical managers think and why they act the way they do, and offers help and guidance to young sysadmins trying to grow in their careers."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Dec 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: I'm the Manager, This Is My Job
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Opens a window into how technical managers think and why they
+                  act the way they do, offering guidance to young sysadmins
+                  looking to grow in their careers.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+            </div>
+
+            <div id="pub-cards-hidden" class="pub-cards-hidden">
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: How Technical Managers Tell Time"
+                data-pub-date="Oct 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="Time management for sysadmins is a largely solved equation thanks to Limoncelli. This column offers a humble extension to that work, talking specifically about time management for the technical manager."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Oct 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: How Technical Managers Tell Time
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  An extension to the classic sysadmin time management
+                  framework, focused on the unique challenges facing the
+                  technical manager.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Incentivizing Smart People"
+                data-pub-date="Aug 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="Explores the challenge of retaining highly technical professionals in a competitive job market, examining several incentive vectors from both the sysadmin's and the manager's perspective to make the job feel like The Great Job."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Aug 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Incentivizing Smart People
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Explores incentive vectors for retaining highly technical
+                  professionals in a competitive market, from both the
+                  sysadmin's and the manager's perspective.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Surreal Management Situations"
+                data-pub-date="Jun 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="The IT manager's day is filled with the mundane — time cards, shift schedules, metrics reports, meetings. And then there are rare moments of novelty when something strange happens. This column explores those surreal situations and what they reveal about the manager's role."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Jun 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Surreal Management Situations
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Explores the rare moments of novelty amid the mundane routines
+                  of IT management — and what they reveal about the manager's
+                  role.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: A Generational Theory of Sysadmins"
+                data-pub-date="Apr 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="Presents a theory of generational shifts in the sysadmin workforce, developed over years of hiring technical staff, and explains how it should change the approach to hiring and managing sysadmins who don't fit into just one model."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Apr 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: A Generational Theory of Sysadmins
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Develops a generational theory of the sysadmin workforce and
+                  how it should change hiring and management approaches.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Daily Perspectives for the Sysadmin and the Manager"
+                data-pub-date="Feb 2015"
+                data-pub-source="USENIX"
+                data-pub-desc="Contrasts the daily worlds of the sysadmin and the technical manager, drawing on experience in both positions in a manner that is both funny and serious."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Feb 2015</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Daily Perspectives for the Sysadmin and the
+                  Manager
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Contrasts the daily worlds of the sysadmin and the technical
+                  manager in a manner that is both funny and serious.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Career Preventative Maintenance Inspections"
+                data-pub-date="Dec 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="Every good sysadmin maintains technical fluency, but it is attention to the non-technical 'meta-tasks' that can clear the path for a good sysadmin to be a great contributor to a large team. Neglecting them creates a culture of frustration and can ultimately lead to unemployment."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Dec 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Career Preventative Maintenance Inspections
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Argues that attention to non-technical meta-tasks separates a
+                  good sysadmin from a great one, and that neglecting them
+                  creates a culture of frustration.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Parables of System Administration Management"
+                data-pub-date="Oct 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="Over years of managing intelligent, educated, and opinionated system administrators across many companies, industries, and countries, the author developed Parables of Sysadmin — stories that help people cope with and overcome challenges through narrative rather than direct instruction."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Oct 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Parables of System Administration Management
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Shares Parables of Sysadmin — stories developed over years of
+                  managing diverse technical teams to help people cope with and
+                  overcome professional challenges.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: When Technology Isn't the Cause of a Technical Problem"
+                data-pub-date="Aug 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="If the only tool you have is a hammer, every problem looks like a nail. In the technology space, we tend to approach all problems as technology problems. This column explores the management challenge of seeing a technical problem's organizational roots and making a non-technical adjustment that relieves tension and results in better system performance."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Aug 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: When Technology Isn't the Cause of a
+                  Technical Problem
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Explores how a technical problem can have organizational
+                  roots, and how non-technical adjustments can improve system
+                  performance.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Rock Stars and Shift Schedules"
+                data-pub-date="Jun 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="High-stress work environments tend to hire the best and brightest and encourage employees to give their all and more. This column demonstrates how basic organizational tools like shift schedules can guide effort, shepherd resources, and lead to a happier and more sustainable workforce."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Jun 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Rock Stars and Shift Schedules
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Demonstrates how basic shift scheduling tools can reduce
+                  burnout and create a more sustainable workforce in high-stress
+                  technical environments.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Let's Find Someone to Blame"
+                data-pub-date="Apr 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="Assigning blame is actually pretty easy. Truly understanding failure and finding a way to appease the top while improving the organization's overall effectiveness takes real management skill. This column examines how to move from blame to genuine root-cause understanding."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Apr 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Let's Find Someone to Blame
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Examines the difference between assigning blame and truly
+                  understanding failure, and why real improvement requires
+                  genuine root-cause analysis.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="The Evolution of Managed Change in a Complex IT Enterprise"
+                data-pub-date="Jan 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="After years of rapid reaction to mission updates, management changes, and varying requirements for governance of technical change, the author's team developed a managed service transition process for change implementation, navigating technological complexities and influencing workplace culture to create a mature process that delivered positive and predictable results."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Article</span>
+                  <span class="pub-card__date">Jan 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  The Evolution of Managed Change in a Complex IT Enterprise
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  How a team developed a mature change management process after
+                  years of reactive operations, delivering predictable and
+                  positive results across a complex enterprise.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="/var/log/manager: Message Not Received"
+                data-pub-date="Jan 2014"
+                data-pub-source="USENIX"
+                data-pub-desc="Communicating about technology can be a greater challenge than the actual technology itself. When communication between highly technical people fails, the systems they support can pay the price with poor performance and loss of availability. Understanding and repairing those breakdowns is the manager's job."
+                data-pub-link="https://www.usenix.org/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Column</span>
+                  <span class="pub-card__date">Jan 2014</span>
+                </div>
+                <h3 class="pub-card__title">
+                  /var/log/manager: Message Not Received
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Examines how communication failures between technical team
+                  members can lead to brittle, failure-prone production
+                  environments — and why fixing them is the manager's job.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--talk"
+                data-pub-title="An Experiment in Defining the Academic Discipline of System Administration"
+                data-pub-date="Nov 2013"
+                data-pub-source="Summit for Educators in System Administration 2013 (SESA)"
+                data-pub-desc="Examines whether current System Administration academic programs are meeting expectations, exploring how the field might define itself as a formal academic discipline."
+                data-pub-link="https://www.usenix.org/conference/sesa13/experiment-defining-academic-discipline-system-administration"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--light-purple">Presentation</span>
+                  <span class="pub-card__date">Nov 2013 · SESA 2013</span>
+                </div>
+                <h3 class="pub-card__title">
+                  An Experiment in Defining the Academic Discipline of System
+                  Administration
+                </h3>
+                <p class="pub-card__source">
+                  Summit for Educators in System Administration 2013
+                </p>
+                <p class="pub-card__desc">
+                  Examines whether current System Administration academic
+                  programs are meeting expectations and how the field might
+                  define itself as a formal discipline.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--talk"
+                data-pub-title="Panelist — How University Programs Prepare the Next Generation of Sysadmins"
+                data-pub-date="Dec 2011"
+                data-pub-source="Large Installation System Administration Conference (LISA) 2011"
+                data-pub-desc="A team of panelists with real-world experience as educators and sysadmins discuss the challenges and successes of university programs aimed at preparing students to be effective and sought-after system administrators. Topics include teaching strong analytical skills and what makes a student in demand right after graduation."
+                data-pub-link="https://www.usenix.org/conference/lisa11/how-university-programs-prepare-next-generation-sysadmins"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--light-purple">Panel</span>
+                  <span class="pub-card__date">Dec 2011 · LISA 2011</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Panelist — How University Programs Prepare the Next Generation
+                  of Sysadmins
+                </h3>
+                <p class="pub-card__source">
+                  Large Installation System Administration Conference (LISA)
+                </p>
+                <p class="pub-card__desc">
+                  Panel of educators and practitioners on the challenges and
+                  successes of university programs preparing students to be
+                  effective, sought-after system administrators.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="Building a Virtual DNS Appliance Using Solaris 10, BIND, and VMware"
+                data-pub-date="Jun 2010"
+                data-pub-source="USENIX"
+                data-pub-desc="Technical article describing the design and construction of a virtual DNS appliance built on Solaris 10, BIND, and VMware — combining enterprise DNS functionality with the flexibility of virtualization."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Article</span>
+                  <span class="pub-card__date">Jun 2010</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Building a Virtual DNS Appliance Using Solaris 10, BIND, and
+                  VMware
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  Design and construction of a virtual DNS appliance combining
+                  enterprise DNS functionality with the flexibility of
+                  virtualization on Solaris 10.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="A Brief History of the Global Command and Control System (GCCS) and Development of the System Support Work Force"
+                data-pub-date="Mar 2009"
+                data-pub-source="Defense Solutions Group Perspectives, Issue 2"
+                data-pub-desc="Examines the history of the Global Command and Control System (GCCS) and the development of the specialized technical workforce required to support it across military and government environments."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Article</span>
+                  <span class="pub-card__date">Mar 2009</span>
+                </div>
+                <h3 class="pub-card__title">
+                  A Brief History of the Global Command and Control System
+                  (GCCS) and Development of the System Support Work Force
+                </h3>
+                <p class="pub-card__source">
+                  Defense Solutions Group Perspectives, Issue 2
+                </p>
+                <p class="pub-card__desc">
+                  Examines the history of GCCS and the development of the
+                  technical workforce required to support it across military and
+                  government environments.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--talk"
+                data-pub-title="Invited Talk — Command and Control System Administration at Headquarters, U.S. Central Command"
+                data-pub-date="Dec 2006"
+                data-pub-source="Large Installation System Administration Conference (LISA) 2006"
+                data-pub-desc="Invited talk on the system administration practices, challenges, and organizational structures required to operate command and control systems at Headquarters, U.S. Central Command."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--light-purple">Invited Talk</span>
+                  <span class="pub-card__date">Dec 2006 · LISA 2006</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Invited Talk — Command and Control System Administration at
+                  HQ, U.S. Central Command
+                </h3>
+                <p class="pub-card__source">
+                  Large Installation System Administration Conference (LISA)
+                </p>
+                <p class="pub-card__desc">
+                  On the system administration practices and organizational
+                  structures required to operate command and control systems at
+                  USCENTCOM headquarters.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="Free Software and Politics in Yankeetown"
+                data-pub-date="Dec 2006"
+                data-pub-source="Free Software Magazine"
+                data-pub-desc="The picturesque village of Yankeetown, Florida became the target of a large resort development proposal. A loosely organized group of citizens used picture albums, message boards, and mailing lists built on free software to coordinate their response, gaining state-wide attention and direct intervention from the Governor's office. This article describes the technical implementation and evolution of that grassroots movement."
+                data-pub-link="https://freesoftwaremagazine.com/articles/free_software_political_action/"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Article</span>
+                  <span class="pub-card__date">Dec 2006</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Free Software and Politics in Yankeetown
+                </h3>
+                <p class="pub-card__source">Free Software Magazine</p>
+                <p class="pub-card__desc">
+                  How citizens in Yankeetown, Florida used free software tools
+                  to coordinate a grassroots response to a resort development
+                  proposal, ultimately reaching the Governor's office.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--article"
+                data-pub-title="System Administration of Command and Control Systems"
+                data-pub-date="Aug 2006"
+                data-pub-source="USENIX"
+                data-pub-desc="An article on the system administration practices, tooling, and challenges specific to operating command and control systems in government and military environments."
+                data-pub-link="https://www.usenix.org/publications/login/august-2006-volume-31-number-4/system-administration-command-and-control-systems"
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--blue">Article</span>
+                  <span class="pub-card__date">Aug 2006</span>
+                </div>
+                <h3 class="pub-card__title">
+                  System Administration of Command and Control Systems
+                </h3>
+                <p class="pub-card__source">USENIX</p>
+                <p class="pub-card__desc">
+                  On the system administration practices and challenges specific
+                  to operating command and control systems in government and
+                  military environments.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--talk"
+                data-pub-title="Presentation — Knowledge Management for System Administrators"
+                data-pub-date="May 2006"
+                data-pub-source="GCCS System Administration and Engineering Conference (GCCS SAEC)"
+                data-pub-desc="A presentation on applying knowledge management principles to the practice of system administration, presented at the GCCS System Administration and Engineering Conference."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--light-purple">Presentation</span>
+                  <span class="pub-card__date">May 2006 · GCCS SAEC</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Presentation — Knowledge Management for System Administrators
+                </h3>
+                <p class="pub-card__source">
+                  GCCS System Administration and Engineering Conference
+                </p>
+                <p class="pub-card__desc">
+                  Applying knowledge management principles to the practice of
+                  system administration.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--book"
+                data-pub-title="Contributing Author — Sun Certified System Administrator for Solaris 8 Study Guide"
+                data-pub-date="Jan 2001"
+                data-pub-source="McGraw-Hill Professional Book Group"
+                data-pub-desc="Contributing author to the Sun Certified System Administrator for Solaris 8 Study Guide, published by McGraw-Hill Professional Book Group. Provided technical content to support candidates preparing for the Sun Solaris 8 system administrator certification."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--amber">Book</span>
+                  <span class="pub-card__date">Jan 2001 · McGraw-Hill</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Contributing Author — Sun Certified System Administrator for
+                  Solaris 8 Study Guide
+                </h3>
+                <p class="pub-card__source">
+                  McGraw-Hill Professional Book Group
+                </p>
+                <p class="pub-card__desc">
+                  Technical contributions to the Sun Certified System
+                  Administrator for Solaris 8 Study Guide, supporting candidates
+                  preparing for professional certification.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+
+              <div
+                class="pub-card pub-card--talk"
+                data-pub-title="Workshop Chair — Government and Military System Administration Workshop"
+                data-pub-date="Since 2008 (ongoing)"
+                data-pub-source="Large Installation System Administration Conference (LISA)"
+                data-pub-desc="Annual workshop for sysadmins with primary responsibility for computing systems owned by government or military agencies. Open to contractors, government civilians, vendors, uniformed members, and anyone with a direct IT support role in government or military. Discussions cover cloud technologies, data analytics in the government sector, and IT security policy compliance across agencies including DoD, DoE, DoC, NASA, and local governments."
+                data-pub-link=""
+              >
+                <div class="pub-card__meta">
+                  <span class="tag tag--light-purple">Workshop Chair</span>
+                  <span class="pub-card__date">Since 2008 · LISA</span>
+                </div>
+                <h3 class="pub-card__title">
+                  Workshop Chair — Government and Military System Administration
+                  Workshop
+                </h3>
+                <p class="pub-card__source">
+                  Large Installation System Administration Conference (LISA)
+                </p>
+                <p class="pub-card__desc">
+                  Annual workshop for sysadmins supporting government and
+                  military computing, covering cloud, data analytics, and IT
+                  security compliance across DoD, DoE, NASA, and more.
+                </p>
+                <div class="pub-card__arrow">View Details →</div>
+              </div>
+            </div>
+
+            <button id="pub-toggle" class="timeline-toggle">Show More</button>
+          </section>
         </div>
       </div>
     </main>
+
+    <div
+      id="pub-modal"
+      class="rec-modal rec-modal--pub"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pub-modal-title"
+    >
+      <div class="rec-modal__backdrop"></div>
+      <div class="rec-modal__box">
+        <button class="rec-modal__close" aria-label="Close">&times;</button>
+        <p class="pub-modal__meta"></p>
+        <h3 id="pub-modal-title" class="rec-modal__name pub-modal__title"></h3>
+        <p class="rec-modal__text pub-modal__desc"></p>
+        <p class="pub-modal__citation"></p>
+        <a
+          href="#"
+          class="pub-modal__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Publication ↗
+        </a>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">

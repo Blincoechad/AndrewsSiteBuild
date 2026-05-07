@@ -341,6 +341,93 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && !offeringModal.hidden) closeOfferingModal();
     });
   }
+
+  /* ── Publication card modal ── */
+  const pubModal = document.getElementById("pub-modal");
+  if (pubModal) {
+    const pubTitle = document.getElementById("pub-modal-title");
+    const pubMeta = pubModal.querySelector(".pub-modal__meta");
+    const pubDesc = pubModal.querySelector(".pub-modal__desc");
+    const pubCitation = pubModal.querySelector(".pub-modal__citation");
+    const pubLink = pubModal.querySelector(".pub-modal__link");
+    const pubClose = pubModal.querySelector(".rec-modal__close");
+    const pubBackdrop = pubModal.querySelector(".rec-modal__backdrop");
+
+    function openPubModal(card) {
+      const title = card.dataset.pubTitle ?? "";
+      const date = card.dataset.pubDate ?? "";
+      const source = card.dataset.pubSource ?? "";
+      pubTitle.textContent = title;
+      pubMeta.textContent = date + (source ? " · " + source : "");
+      pubDesc.textContent = card.dataset.pubDesc ?? "";
+      const citation = card.dataset.pubCitation ?? "";
+      pubCitation.textContent = citation;
+      pubCitation.hidden = !citation;
+      const link = card.dataset.pubLink ?? "";
+      if (!link) {
+        pubLink.hidden = true;
+      } else if (link === "#") {
+        pubLink.hidden = false;
+        pubLink.href = "#";
+        pubLink.textContent = "Link coming soon";
+        pubLink.style.opacity = "0.45";
+        pubLink.style.pointerEvents = "none";
+        pubLink.removeAttribute("target");
+        pubLink.removeAttribute("rel");
+      } else {
+        pubLink.hidden = false;
+        pubLink.href = link;
+        pubLink.textContent = "View Publication ↗";
+        pubLink.style.opacity = "";
+        pubLink.style.pointerEvents = "";
+        pubLink.target = "_blank";
+        pubLink.rel = "noopener noreferrer";
+      }
+      pubModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      pubClose.focus();
+    }
+
+    function closePubModal() {
+      pubModal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".pub-card").forEach((card) => {
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      const open = () => openPubModal(card);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+
+    pubClose.addEventListener("click", closePubModal);
+    pubBackdrop.addEventListener("click", closePubModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !pubModal.hidden) closePubModal();
+    });
+  }
+
+  /* ── Publications Show More toggle ── */
+  const pubToggle = document.getElementById("pub-toggle");
+  const pubHidden = document.getElementById("pub-cards-hidden");
+  if (pubToggle && pubHidden) {
+    pubToggle.addEventListener("click", () => {
+      const isOpen = pubHidden.classList.toggle("open");
+      pubToggle.classList.toggle("open", isOpen);
+      pubToggle.textContent = isOpen ? "Show Less" : "Show More";
+      if (!isOpen) {
+        document
+          .getElementById("publications")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
 });
 
 // Each role maps to one avatar color class and one badge class.
