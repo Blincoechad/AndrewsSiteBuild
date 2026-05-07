@@ -235,6 +235,58 @@ document.addEventListener("DOMContentLoaded", () => {
       timelineToggle.textContent = isOpen ? "Show Less" : "Show More";
     });
   }
+
+  /* ── UMGC class pill modal ── */
+  const classModal = document.getElementById("class-modal");
+  if (classModal) {
+    const className = document.getElementById("class-modal-name");
+    const classText = classModal.querySelector(".class-modal__text");
+    const classClose = classModal.querySelector(".rec-modal__close");
+    const classBackdrop = classModal.querySelector(".rec-modal__backdrop");
+    const classPills = document.querySelectorAll(".umgc-class-pills li");
+
+    function openClassModal(title, description) {
+      className.textContent = title;
+      classText.textContent = description;
+      classModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      classClose.focus();
+    }
+
+    function closeClassModal() {
+      classModal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    classPills.forEach((pill) => {
+      const openPillModal = () => {
+        const title =
+          pill.dataset.classTitle ?? pill.textContent.trim() ?? "Class Details";
+        const description =
+          pill.dataset.classDescription ??
+          "Course description is currently unavailable.";
+        openClassModal(title, description);
+      };
+
+      pill.style.cursor = "pointer";
+      pill.tabIndex = 0;
+      pill.setAttribute("role", "button");
+
+      pill.addEventListener("click", openPillModal);
+      pill.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openPillModal();
+        }
+      });
+    });
+
+    classClose.addEventListener("click", closeClassModal);
+    classBackdrop.addEventListener("click", closeClassModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !classModal.hidden) closeClassModal();
+    });
+  }
 });
 
 // Each role maps to one avatar color class and one badge class.
