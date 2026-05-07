@@ -287,6 +287,60 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && !classModal.hidden) closeClassModal();
     });
   }
+
+  /* ── Consulting offering card modal ── */
+  const offeringModal = document.getElementById("offering-modal");
+  if (offeringModal) {
+    const offeringName = document.getElementById("offering-modal-name");
+    const offeringText = offeringModal.querySelector(".offering-modal__text");
+    const offeringClose = offeringModal.querySelector(".rec-modal__close");
+    const offeringBackdrop = offeringModal.querySelector(
+      ".rec-modal__backdrop",
+    );
+
+    function openOfferingModal(title, description) {
+      offeringName.textContent = title;
+      offeringText.textContent = description;
+      offeringModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      offeringClose.focus();
+    }
+
+    function closeOfferingModal() {
+      offeringModal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".offering-card").forEach((card) => {
+      const openModal = () => {
+        const title =
+          card.dataset.offeringTitle ??
+          card.querySelector("h3")?.textContent.trim() ??
+          "Service Details";
+        const description =
+          card.dataset.offeringDescription ?? "No details available.";
+        openOfferingModal(title, description);
+      };
+
+      card.style.cursor = "pointer";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+
+      card.addEventListener("click", openModal);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openModal();
+        }
+      });
+    });
+
+    offeringClose.addEventListener("click", closeOfferingModal);
+    offeringBackdrop.addEventListener("click", closeOfferingModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !offeringModal.hidden) closeOfferingModal();
+    });
+  }
 });
 
 // Each role maps to one avatar color class and one badge class.

@@ -141,18 +141,64 @@
     <main>
       <div class="section">
         <div class="container">
-          <!-- Content Block -->
           <section id="current-courses" class="content-block">
             <div class="section-heading--line">
               <h2>Current Semester Courses</h2>
             </div>
             <p>
-              Details about courses being taught this term will be updated here.
+              Courses currently being taught at Hillsborough Community College,
+              Dale Mabry Campus.
             </p>
+
+            <ul class="clean-list umgc-class-pills">
+              <li
+                data-class-title="COP 2800 - Introduction to Java"
+                data-class-description="Core Java programming concepts including variables, control flow, methods, arrays, and object-oriented fundamentals. Designed to give students a solid foundation in software development using the Java language."
+              >
+                COP 2800 - Introduction to Java
+              </li>
+              <li
+                data-class-title="COP 2805C - Advanced Java"
+                data-class-description="Intermediate-to-advanced Java programming topics covering inheritance, polymorphism, interfaces, exception handling, file I/O, and practical application development techniques."
+              >
+                COP 2805C - Advanced Java
+              </li>
+              <li
+                data-class-title="CGS 2100 - Computer Information Technology and Literacy"
+                data-class-description="Applied technology literacy course covering productivity tools, information management, digital communication, and foundational computing skills for the modern workplace."
+              >
+                CGS 2100 - Computer Information Technology and Literacy
+              </li>
+              <li
+                data-class-title="CGS 1000 - Introduction to Computers and Technology"
+                data-class-description="Entry-level course providing orientation to modern computing systems, hardware and software fundamentals, internet use, and digital workplace readiness for students new to computing."
+              >
+                CGS 1000 - Introduction to Computers and Technology
+              </li>
+            </ul>
           </section>
         </div>
       </div>
     </main>
+
+    <div
+      id="class-modal"
+      class="rec-modal rec-modal--class"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="class-modal-name"
+    >
+      <div class="rec-modal__backdrop"></div>
+      <div class="rec-modal__box">
+        <button class="rec-modal__close" aria-label="Close">&times;</button>
+        <h3
+          id="class-modal-name"
+          class="rec-modal__name class-modal__name"
+        ></h3>
+        <p class="rec-modal__text class-modal__text"></p>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">
