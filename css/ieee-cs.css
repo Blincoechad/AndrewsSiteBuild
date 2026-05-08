@@ -281,12 +281,12 @@
 }
 
 .ieee-cs-linkedin-link {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: #4bbdd4;
+  color: #4bbdd4;
 }
 
 .ieee-cs-linkedin-link:hover {
-  background: var(--accent);
+  background: #4bbdd4;
   color: var(--white);
 }
 
