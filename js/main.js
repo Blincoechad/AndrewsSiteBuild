@@ -233,6 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpen = timelineHidden.classList.toggle("open");
       timelineToggle.classList.toggle("open", isOpen);
       timelineToggle.textContent = isOpen ? "Show Less" : "Show More";
+      if (!isOpen) {
+        document
+          .getElementById("career-timeline")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   }
 
@@ -429,6 +434,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+/* ── Scroll-to-top button ── */
+(function () {
+  const btn = document.getElementById("scroll-top");
+  if (!btn) return;
+  const hero = document.querySelector(".hero");
+  const threshold = hero ? hero.offsetHeight : 300;
+  window.addEventListener(
+    "scroll",
+    () => {
+      btn.classList.toggle("visible", window.scrollY > threshold);
+    },
+    { passive: true },
+  );
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
 
 // Each role maps to one avatar color class and one badge class.
 // To change a role's color, edit the avatarClass value here.

@@ -84,7 +84,7 @@
       }
       .pub-card__arrow {
         font-size: 0.78rem;
-        color: var(--accent);
+        color: #4bbdd4;
         margin-top: auto;
         padding-top: 0.75rem;
         font-weight: 600;
@@ -94,13 +94,15 @@
         overflow-y: auto;
       }
       #pub-toggle {
+        background: rgba(18, 18, 22, 0.88);
+        border-color: var(--accent);
+      }
+      #pub-toggle.open {
         position: sticky;
         bottom: 1.5rem;
         z-index: 50;
-        background: rgba(18, 18, 22, 0.88);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        border-color: var(--accent);
       }
       .pub-cards-hidden {
         display: grid;
@@ -1723,6 +1725,23 @@
         <p class="rec-modal__text"></p>
       </div>
     </div>
+
+    <button id="scroll-top" aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
 
     <script src="js/main.js" defer></script>
   </body>
