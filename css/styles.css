@@ -1171,8 +1171,8 @@ h4 {
 }
 
 .hero-image {
-  width: 60%;
-  height: 60%;
+  width: 78%;
+  height: auto;
   margin-bottom: 5rem;
   animation: hero-fade-in 1.2s ease forwards;
 }

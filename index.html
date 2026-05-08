@@ -101,11 +101,29 @@
     <header class="hero">
       <div class="container hero__layout">
         <div class="hero__image-wrap">
-          <img
-            src="./media/AndyPic.png"
-            alt="picture of Andy in cartoon"
-            class="hero-image"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                ./media/AndyPic-480.webp 480w,
+                ./media/AndyPic-764.webp 764w
+              "
+              sizes="(max-width: 768px) 88vw, 38vw"
+            />
+            <img
+              src="./media/AndyPic-764.png"
+              srcset="
+                ./media/AndyPic-480.png 480w,
+                ./media/AndyPic-764.png 764w
+              "
+              sizes="(max-width: 768px) 88vw, 38vw"
+              alt="picture of Andy in cartoon"
+              class="hero-image"
+              width="764"
+              height="789"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         <div class="hero__inner">
@@ -518,6 +536,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
