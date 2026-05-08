@@ -1,5 +1,5 @@
-
 {
+  "_comment": "updated x-frame-options to SAMEORIGIN",
   "headers": [
     {
       "source": "/(.*)",
