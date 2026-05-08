@@ -1,12 +1,11 @@
 {
-  "_comment": "updated x-frame-options to SAMEORIGIN",
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self';"
         },
         {
           "key": "X-Content-Type-Options",
@@ -17,12 +16,8 @@
           "value": "SAMEORIGIN"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
           "key": "Referrer-Policy",
-          "value": "no-referrer"
+          "value": "strict-origin-when-cross-origin"
         },
         {
           "key": "Permissions-Policy",
@@ -31,7 +26,7 @@
       ]
     },
     {
-      "source": "/(.*).webp",
+      "source": "/(.*)\\.webp",
       "headers": [
         {
           "key": "Content-Type",
