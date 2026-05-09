@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://trusted-scripts.example.com; style-src 'self' https://trusted-styles.example.com; img-src 'self'; object-src 'none'; base-uri 'self';"
+          "value": "default-src 'self'; script-src 'self' https://trusted-scripts.example.com; style-src 'self' https://trusted-styles.example.com;"
         },
         {
           "key": "Access-Control-Allow-Origin",
