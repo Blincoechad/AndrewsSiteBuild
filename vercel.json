@@ -5,7 +5,11 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'"
+          "value": "default-src 'self'; script-src 'self' https://trusted-scripts.example.com; style-src 'self' https://trusted-styles.example.com;"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://example.com"
         },
         {
           "key": "Referrer-Policy",
